@@ -669,9 +669,7 @@ class Crossword extends Component {
 
       this.setState({
         grid: mapGrid(this.state.grid, (cell, gridX, gridY) => {
-          if (
-            badCells.some(bad => bad.x === gridX && bad.y === gridY)
-          ) {
+          if (badCells.some(bad => bad.x === gridX && bad.y === gridY)) {
             const previousValue = cell.value;
             cell.value = '';
             this.props.onMove({

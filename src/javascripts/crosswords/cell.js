@@ -65,8 +65,7 @@ class Cell extends Component {
           className={classNames({
             crossword__cell: true,
             'crossword__cell--focussed': this.props.isFocussed,
-            'crossword__cell--highlighted': this.props
-              .isHighlighted,
+            'crossword__cell--highlighted': this.props.isHighlighted,
           })}
         />
         {cellNumber}
