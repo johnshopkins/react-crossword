@@ -3,6 +3,10 @@
     fill: #ffffff;
 }
 
+.crossword__cell--wrong {
+    fill: lighten($xword-wrong-colour, 20%) !important;
+}
+
 .crossword__cell--highlighted {
     &,
     .crossword__grid--focussed & {

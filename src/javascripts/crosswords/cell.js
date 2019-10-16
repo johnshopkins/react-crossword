@@ -10,6 +10,7 @@ class Cell extends Component {
             || this.props.isFocussed !== nextProps.isFocussed
             || this.props.isHighlighted !== nextProps.isHighlighted
             || this.props.isError !== nextProps.isError
+            || this.props.wrong !== nextProps.wrong
     );
   }
 
@@ -65,6 +66,7 @@ class Cell extends Component {
           className={classNames({
             crossword__cell: true,
             'crossword__cell--focussed': this.props.isFocussed,
+            'crossword__cell--wrong': this.props.wrong,
             'crossword__cell--highlighted': this.props.isHighlighted,
           })}
         />

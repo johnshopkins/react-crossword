@@ -25,6 +25,7 @@ const stubCellWithValue = value => ({
   isEditable: false,
   isError: false,
   isAnimating: false,
+  wrong: false,
   value,
 });
 

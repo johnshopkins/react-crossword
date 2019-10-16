@@ -44,6 +44,8 @@ class Crossword extends Component {
     this.rows = dimensions.rows;
     this.clueMap = buildClueMap(this.props.data.entries);
 
+    this.checked= [];
+
     this.state = {
       grid: buildGrid(
         dimensions.rows,
@@ -504,6 +506,20 @@ class Crossword extends Component {
 
   // Focus corresponding clue for a given cell
   focusClue(x, y, direction) {
+
+    if (this.checked.length > 0) {
+      // clear previous check(s)
+      this.checked.forEach(entry => {
+        const cells = cellsForEntry(entry);
+        cells.forEach(cell => this.state.grid[cell.x][cell.y].wrong = false);
+      });
+      
+      this.setState({
+        grid: this.state.grid
+      });
+      this.checked = [];
+    }
+
     const clues = cluesFor(this.clueMap, x, y);
     const clue = clues[direction];
 
@@ -644,7 +660,7 @@ class Crossword extends Component {
         grid: mapGrid(this.state.grid, (cell, gridX, gridY) => {
           if (badCells.some(bad => bad.x === gridX && bad.y === gridY)) {
             const previousValue = cell.value;
-            cell.value = '';
+            cell.wrong = true;
             this.props.onMove({
               x: gridX, y: gridY, value: '', previousValue,
             });
@@ -653,6 +669,7 @@ class Crossword extends Component {
           return cell;
         }),
       });
+      this.checked.push(entry);
     }
   }
 

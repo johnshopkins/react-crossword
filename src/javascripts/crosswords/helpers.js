@@ -172,6 +172,7 @@ const buildGrid = (rows, columns, entries, savedState) => {
     isEditable: false,
     isError: false,
     isAnimating: false,
+    wrong: false,
     value:
                 savedState && savedState[x] && savedState[x][y]
                   ? savedState[x][y]
