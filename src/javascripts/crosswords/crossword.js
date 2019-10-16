@@ -7,7 +7,6 @@ import mediator from 'lib/mediator';
 import { isBreakpoint } from 'lib/detect';
 import { scrollTo } from 'lib/scroller';
 import { addEventListener } from 'lib/events';
-import { AnagramHelper } from 'crosswords/anagram-helper/main';
 import debounce from 'lodash/debounce';
 import zip from 'lodash/zip';
 import { Clues } from 'crosswords/clues';
@@ -53,8 +52,7 @@ class Crossword extends Component {
         this.props.loadGrid(this.props.id),
       ),
       cellInFocus: null,
-      directionOfEntry: null,
-      showAnagramHelper: false,
+      directionOfEntry: null
     };
   }
 
@@ -101,16 +99,6 @@ class Crossword extends Component {
 
     const entryId = window.location.hash.replace('#', '');
     this.focusFirstCellInClueById(entryId);
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    // return focus to active cell after exiting anagram helper
-    if (
-      !this.state.showAnagramHelper
-            && this.state.showAnagramHelper !== prevState.showAnagramHelper
-    ) {
-      this.focusCurrentCell();
-    }
   }
 
   onKeyDown(event) {
@@ -265,21 +253,6 @@ class Crossword extends Component {
       });
 
       this.saveGrid();
-    }
-  }
-
-  onToggleAnagramHelper() {
-    // only show anagram helper if a clue is active
-    if (!this.state.showAnagramHelper) {
-      if (this.clueInFocus()) {
-        this.setState({
-          showAnagramHelper: true,
-        });
-      }
-    } else {
-      this.setState({
-        showAnagramHelper: false,
-      });
     }
   }
 
@@ -717,17 +690,6 @@ class Crossword extends Component {
   render() {
     const focused = this.clueInFocus();
 
-    const anagramHelper = this.state.showAnagramHelper && (
-    <AnagramHelper
-      key={focused.id}
-      crossword={this}
-      focussedEntry={focused}
-      entries={this.props.data.entries}
-      grid={this.state.grid}
-      close={this.onToggleAnagramHelper}
-    />
-    );
-
     const gridProps = {
       rows: this.rows,
       columns: this.columns,
@@ -796,7 +758,6 @@ class Crossword extends Component {
                 this.hiddenInputComponent = hiddenInputComponent;
               }}
             />
-            {anagramHelper}
           </div>
         </div>
         <Controls

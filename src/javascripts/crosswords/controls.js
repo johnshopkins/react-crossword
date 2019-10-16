@@ -67,20 +67,6 @@ class Controls extends Component {
         </button>,
       );
 
-      // anagram helper
-      controls.clue.push(
-        <button
-          className={`${buttonClassName} ${buttonCurrentClassName}`}
-          onClick={this.props.crossword.onToggleAnagramHelper.bind(
-            this.props.crossword,
-          )}
-          key="anagram"
-          data-link-name="Show anagram helper"
-        >
-                    Anagram helper
-        </button>,
-      );
-
       if (hasSolutions) {
         controls.clue.unshift(
           <button
