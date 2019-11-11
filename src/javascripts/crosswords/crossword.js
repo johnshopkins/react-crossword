@@ -13,9 +13,11 @@ import { Clues } from 'crosswords/clues';
 import { Controls } from 'crosswords/controls';
 import { HiddenInput } from 'crosswords/hidden-input';
 import { Grid } from 'crosswords/grid';
+import { HiddenWord } from 'crosswords/hidden-word';
 import {
   buildClueMap,
   buildGrid,
+  findHiddenWordCells,
   otherDirection,
   entryHasCell,
   cluesFor,
@@ -46,12 +48,15 @@ class Crossword extends Component {
 
     this.checked= [];
 
+    this.hiddenWord = this.props.data.hiddenWord || null;
+
     this.state = {
       grid: buildGrid(
         dimensions.rows,
         dimensions.cols,
         this.props.data.entries,
         this.props.loadGrid(this.props.id),
+        this.hiddenWord.cells
       ),
       cellInFocus: null,
       directionOfEntry: null
@@ -334,6 +339,7 @@ class Crossword extends Component {
         this.columns,
         this.props.data.entries,
         gridState,
+        this.hiddenWord,
       ),
     });
   }
@@ -341,6 +347,7 @@ class Crossword extends Component {
   insertCharacter(character) {
     const characterUppercase = character.toUpperCase();
     const cell = this.state.cellInFocus;
+
     if (
       /[A-Za-zÀ-ÿ0-9]/.test(characterUppercase)
             && characterUppercase.length === 1
@@ -349,6 +356,34 @@ class Crossword extends Component {
       this.setCellValue(cell.x, cell.y, characterUppercase);
       this.saveGrid();
       this.focusNext();
+    }
+  }
+
+  onHiddenWordBlockChange(x, y, character) {
+
+    const characterUppercase = character.toUpperCase();
+    const cell = this.state.grid[x][y];
+
+    if ((characterUppercase === '' || /[A-Za-zÀ-ÿ0-9]/.test(characterUppercase) && cell)) {
+      this.setCellValue(x, y, characterUppercase);
+      this.saveGrid();
+    }
+  }
+
+  onHiddenWordBlockSubmit(e) {
+
+    e.preventDefault()
+
+    let success = true;
+    Object.keys(this.hiddenWord.cells).map((x) => this.hiddenWord.cells[x].map((y) => {
+      const cell = this.state.grid[x][y];
+      if (cell.value !== cell.correctValue) {
+        success = false;
+      }
+    }));
+
+    if (typeof this.hiddenWord.callback === 'function') {
+      this.hiddenWord.callback(success);
     }
   }
 
@@ -782,6 +817,12 @@ class Crossword extends Component {
           clueInFocus={focused}
           crossword={this}
         />
+        <HiddenWord
+          grid={this.state.grid}
+          hiddenWord={this.hiddenWord}
+          onChange={this.onHiddenWordBlockChange.bind(this)}
+          onSubmit={this.onHiddenWordBlockSubmit.bind(this)}
+        />
         <Clues
           clues={this.cluesData()}
           focussed={focused}
@@ -796,6 +837,7 @@ class Crossword extends Component {
 }
 
 Crossword.defaultProps = {
+  hiddenWord: [],
   onMove: () => {},
   loadGrid: id => loadGridState(id),
   saveGrid: (id, grid) => saveGridState(id, grid),

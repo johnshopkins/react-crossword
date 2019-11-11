@@ -13,6 +13,19 @@ const data = {
     rows: 21 
   },
   crosswordType: 'jhu',
+  hiddenWord: {
+    cells: {
+      1: [0],
+      7: [2, 3]
+    },
+    callback: (success) => {
+      if (success) {
+        console.log('go to some other page');
+      } else {
+        console.log('Sorrraaay, your password is not correct');
+      }
+    }
+  }
 };
 
 ReactDOM.render(<Crossword data={data}/>, document.getElementById('puzzle'));

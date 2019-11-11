@@ -166,8 +166,9 @@ const getClearableCellsForClue = (grid, clueMap, entries, clue) => {
 /**
  * Builds the initial state of the grid given the number of rows, columns, and a list of clues.
  */
-const buildGrid = (rows, columns, entries, savedState) => {
+const buildGrid = (rows, columns, entries, savedState, hiddenWord) => {
   const grid = range(columns).map(x => range(rows).map(y => ({
+    hiddenWord: false,
     isHighlighted: false,
     isEditable: false,
     isError: false,
@@ -180,12 +181,19 @@ const buildGrid = (rows, columns, entries, savedState) => {
   })));
 
   entries.forEach((entry) => {
+
     const { x, y } = entry.position;
 
     grid[x][y].number = entry.number;
 
-    cellsForEntry(entry).forEach((cell) => {
+    const correctValues = entry.solution.split('');
+
+    cellsForEntry(entry).forEach((cell, i) => {
       grid[cell.x][cell.y].isEditable = true;
+      grid[cell.x][cell.y].correctValue = correctValues[i];
+      if (hiddenWord && hiddenWord[cell.x] && hiddenWord[cell.x].indexOf(cell.y) > -1) {
+        grid[cell.x][cell.y].hiddenWord = true;
+      }
     });
   });
 

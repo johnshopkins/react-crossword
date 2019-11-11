@@ -48,6 +48,7 @@ class Cell extends Component {
             'crossword__cell-text': true,
             'crossword__cell-text--focussed': this.props.isFocussed,
             'crossword__cell-text--error': this.props.isError,
+            'crossword__cell--hiddenWord': this.props.hiddenWord,
           })}
           textAnchor="middle"
         >
@@ -68,6 +69,7 @@ class Cell extends Component {
             'crossword__cell--focussed': this.props.isFocussed,
             'crossword__cell--wrong': this.props.wrong,
             'crossword__cell--highlighted': this.props.isHighlighted,
+            'crossword__cell--hiddenWord': this.props.hiddenWord,
           })}
         />
         {cellNumber}

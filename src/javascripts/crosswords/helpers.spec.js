@@ -21,6 +21,7 @@ import {
 
 const stubCellWithValue = value => ({
   number: 1,
+  hiddenWord: false,
   isHighlighted: false,
   isEditable: false,
   isError: false,
