@@ -16,7 +16,9 @@ const data = {
   hiddenWord: {
     cells: {
       1: [0],
-      7: [2, 3]
+      6: [2],
+      7: [8],
+      13: [13]
     },
     callback: (success) => {
       if (success) {
