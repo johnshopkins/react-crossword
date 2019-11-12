@@ -366,8 +366,16 @@ class Crossword extends Component {
 
     if ((characterUppercase === '' || /[A-Za-zÀ-ÿ0-9]/.test(characterUppercase) && cell)) {
       this.setCellValue(x, y, characterUppercase);
-      this.saveGrid();
+      this.saveGrid();      
+      return true;
     }
+
+    return false;
+  }
+
+  onHiddenWordBlockFocus(x, y) {
+    // remove focus from crossword puzzle
+    this.setState({ cellInFocus: null })
   }
 
   onHiddenWordBlockSubmit(e) {
@@ -821,6 +829,7 @@ class Crossword extends Component {
           grid={this.state.grid}
           hiddenWord={this.hiddenWord}
           onChange={this.onHiddenWordBlockChange.bind(this)}
+          onFocus={this.onHiddenWordBlockFocus.bind(this)}
           onSubmit={this.onHiddenWordBlockSubmit.bind(this)}
         />
         <Clues

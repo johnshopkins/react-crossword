@@ -1,28 +1,37 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class HiddenWordBlock extends Component {
+const HiddenWordCharacter = React.forwardRef((props, ref) => {
 
-  handleChange(event) {
-    this.props.onChange(
-      parseInt(this.props.x),
-      parseInt(this.props.y),
-      event.target.value
+  const handleChange = (event) => {    
+    props.onChange(
+      parseInt(props.x),
+      parseInt(props.y),
+      event.target.value,
+      props.i
     );
   }
 
-  render() {
-    return (
-      <input
-        type='text'
-        maxLength='1'
-        autoComplete='off'
-        spellCheck='false'
-        autoCorrect='off'
-        value={this.props.value}
-        onChange={this.handleChange.bind(this)}
-      />
+  const handleFocus = (event) => {
+    props.onFocus(
+      parseInt(props.x),
+      parseInt(props.y)
     );
   }
-}
 
-export default HiddenWordBlock;
+  return (
+    <input
+      type='text'
+      maxLength='1'
+      autoComplete='off'
+      spellCheck='false'
+      autoCorrect='off'
+      value={props.value}
+      ref={ref}
+      onChange={handleChange}
+      onFocus={handleFocus}
+    />
+  );
+
+});
+
+export default HiddenWordCharacter;
