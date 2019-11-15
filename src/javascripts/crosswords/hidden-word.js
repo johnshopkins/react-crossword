@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { findDOMNode } from 'react-dom';
 import HiddenWordCharacter from 'crosswords/hidden-word-character';
 
 class HiddenWord extends Component {
@@ -24,7 +23,7 @@ class HiddenWord extends Component {
 
     const success = this.props.onChange(x, y, character);
 
-    if (!success) {
+    if (!success || !character) {
       return;
     }
 
@@ -36,20 +35,26 @@ class HiddenWord extends Component {
     }
   }
 
-  render() {
+  onKeyDown(i) {
+    if (i >= 1) {      
+      this.inputRefs[i-1].current.focus();
+      this.inputRefs[i-1].current.select();
+    }
+  }
 
+  render() {
     return (
       <form onSubmit={this.props.onSubmit}>
         {this.cells.map((cell, i) => {    
           return <HiddenWordCharacter
             value={cell.value}
-            focussed={this.props.focussed === i}
             x={cell.x}
             y={cell.y}
             key={i}
             i={i}
             ref={this.inputRefs[i]}
             onChange={this.handleChange.bind(this)}
+            onKeyDown={this.onKeyDown.bind(this)}
             onFocus={this.props.onFocus}
           />;
         })}

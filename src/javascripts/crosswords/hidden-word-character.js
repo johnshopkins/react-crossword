@@ -1,8 +1,10 @@
 import React from 'react';
+import { keycodes } from 'crosswords/keycodes';
+
 
 const HiddenWordCharacter = React.forwardRef((props, ref) => {
 
-  const handleChange = (event) => {    
+  const handleChange = (event) => { 
     props.onChange(
       parseInt(props.x),
       parseInt(props.y),
@@ -12,10 +14,20 @@ const HiddenWordCharacter = React.forwardRef((props, ref) => {
   }
 
   const handleFocus = (event) => {
+    ref.current.select();
     props.onFocus(
       parseInt(props.x),
       parseInt(props.y)
     );
+  }
+
+  const handleKeyDown = (event) => {
+    if (event.target.value === '' && !event.metaKey && !event.ctrlKey && !event.altKey) {
+      if (event.keyCode === keycodes.backspace || event.keyCode === keycodes.delete) {
+        event.preventDefault();
+        props.onKeyDown(props.i);
+      }
+    }
   }
 
   return (
@@ -27,6 +39,7 @@ const HiddenWordCharacter = React.forwardRef((props, ref) => {
       autoCorrect='off'
       value={props.value}
       ref={ref}
+      onKeyDown={handleKeyDown}
       onChange={handleChange}
       onFocus={handleFocus}
     />
