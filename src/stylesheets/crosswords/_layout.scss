@@ -62,12 +62,12 @@
 .crossword__container--react {
     & .crossword__clues--wrapper,
     & .crossword__clues {
-        @include mq($from: tablet, $until: leftCol) {
+        @include mq($from: tablet, $until: wide) {
             height: xword-grid-dimensions(15) + ($gs-baseline * 10);
         }
     }
 
-    @include mq($from: tablet, $until: leftCol) {
+    @include mq($from: tablet, $until: wide) {
         & .crossword__clues {
             position: relative;
             overflow-y: scroll;
@@ -84,7 +84,7 @@
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #ffffff);
     display: none;
 
-    @include mq($from: tablet, $until: leftCol) {
+    @include mq($from: tablet, $until: wide) {
         display: block;
 
         .hide-gradient & {
@@ -113,7 +113,7 @@
         }
     }
 
-    @include mq(leftCol) {
+    @include mq(wide) {
         display: table;
         table-layout: fixed;
         height: auto;
