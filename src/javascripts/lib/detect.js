@@ -27,7 +27,7 @@ const breakpoints = [
   {
     name: 'tablet',
     isTweakpoint: false,
-    width: 740,
+    width: 820,
   },
   {
     name: 'desktop',
