@@ -30,7 +30,7 @@ const HiddenWordCharacter = React.forwardRef((props, ref) => {
     }
   }
 
-  const cellSize = constants.cellSize - (constants.borderSize * 2);
+  const cellSize = constants.cellSize + (constants.borderSize * 2);
 
   return (
     <input
