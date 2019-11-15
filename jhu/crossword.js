@@ -26,7 +26,8 @@ const data = {
       } else {
         console.log('Sorrraaay, your password is not correct');
       }
-    }
+    },
+    title: 'Solve for S'
   }
 };
 
