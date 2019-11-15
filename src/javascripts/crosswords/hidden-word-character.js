@@ -1,6 +1,6 @@
 import React from 'react';
+import { constants } from 'crosswords/constants';
 import { keycodes } from 'crosswords/keycodes';
-
 
 const HiddenWordCharacter = React.forwardRef((props, ref) => {
 
@@ -30,6 +30,8 @@ const HiddenWordCharacter = React.forwardRef((props, ref) => {
     }
   }
 
+  const cellSize = constants.cellSize - (constants.borderSize * 2);
+
   return (
     <input
       type='text'
@@ -42,6 +44,7 @@ const HiddenWordCharacter = React.forwardRef((props, ref) => {
       onKeyDown={handleKeyDown}
       onChange={handleChange}
       onFocus={handleFocus}
+      style={{ width: cellSize, height: cellSize }}
     />
   );
 

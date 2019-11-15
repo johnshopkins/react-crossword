@@ -44,7 +44,7 @@ class HiddenWord extends Component {
 
   render() {
     return (
-      <form onSubmit={this.props.onSubmit}>
+      <form onSubmit={this.props.onSubmit} className="crossword__hidden-word">
         {this.cells.map((cell, i) => {    
           return <HiddenWordCharacter
             value={cell.value}
