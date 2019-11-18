@@ -50,6 +50,9 @@ class Crossword extends Component {
 
     this.hiddenWord = this.props.data.hiddenWord || null;
 
+    this.cluesInitialized = false;
+    this.cluesAttempted = [];
+
     this.state = {
       grid: buildGrid(
         dimensions.rows,
@@ -648,17 +651,39 @@ class Crossword extends Component {
   }
 
   cluesData() {
-    return this.props.data.entries.map((entry) => {
+    let cluesAttempted = [];
+
+    const clues = this.props.data.entries.map((entry) => {
       const hasAnswered = checkClueHasBeenAnswered(
         this.state.grid,
         entry,
       );
+      if (hasAnswered) {
+        cluesAttempted.push(entry.number + ' ' + entry.direction);
+      }
       return {
         entry,
         hasAnswered,
         isSelected: this.clueIsInFocusGroup(entry),
       };
     });
+
+    if (typeof dataLayer === 'object' && typeof dataLayer.push === 'function' && this.cluesInitialized === true) {
+
+      let difference = cluesAttempted.filter(x => this.cluesAttempted.indexOf(x) === -1);
+
+      if (difference.length > 0) {
+        dataLayer.push({
+          'event': 'clueAnswered',
+          'label': difference[0]
+        });
+      }
+    }
+
+    this.cluesAttempted = cluesAttempted;
+    this.cluesInitialized = true;
+
+    return clues;
   }
 
   cheat(entry) {
