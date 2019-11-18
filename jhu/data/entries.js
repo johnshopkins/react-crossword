@@ -327,8 +327,8 @@ const entries = [
     number: 85,
     clue: '____ planning',
     direction: 'across',
-    position: { x: 0, y: 0 },
-    solution: ''
+    position: { x: 0, y: 15 },
+    solution: 'URBAN'
   },
   {
     number: 86,
