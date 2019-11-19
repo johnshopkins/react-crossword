@@ -63,7 +63,7 @@
     & .crossword__clues--wrapper,
     & .crossword__clues {
         @include mq($from: tablet, $until: wide) {
-            height: xword-grid-dimensions(16) + ($gs-baseline * 10);
+            height: xword-grid-dimensions(17) + ($gs-baseline * 10);
         }
     }
 
