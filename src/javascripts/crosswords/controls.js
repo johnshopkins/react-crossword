@@ -28,17 +28,17 @@ class Controls extends Component {
     );
 
     if (hasSolutions) {
-      controls.grid.unshift(
-        <ConfirmButton
-          className={`${buttonClassName} ${buttonGenericClassName}`}
-          onClick={this.props.crossword.onSolution.bind(
-            this.props.crossword,
-          )}
-          key="solution"
-          data-link-name="Reveal all"
-          text="Reveal all"
-        />,
-      );
+      // controls.grid.unshift(
+      //   <ConfirmButton
+      //     className={`${buttonClassName} ${buttonGenericClassName}`}
+      //     onClick={this.props.crossword.onSolution.bind(
+      //       this.props.crossword,
+      //     )}
+      //     key="solution"
+      //     data-link-name="Reveal all"
+      //     text="Reveal all"
+      //   />,
+      // );
       controls.grid.unshift(
         <ConfirmButton
           className={`${buttonClassName} ${buttonGenericClassName}`}
