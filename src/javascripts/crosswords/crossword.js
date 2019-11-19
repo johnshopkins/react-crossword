@@ -40,6 +40,9 @@ import { classNames } from 'crosswords/classNames';
 class Crossword extends Component {
   constructor(props) {
     super(props);
+
+    this.addWindowResizeEvent();
+
     const dimensions = this.props.data.dimensions;
 
     this.columns = dimensions.cols;
@@ -68,17 +71,24 @@ class Crossword extends Component {
     };
   }
 
+  addWindowResizeEvent() {
+    const onResize = (evt) => {
+      console.log('resize');
+      mediator.emitEvent('window:throttledResize', [evt]);
+    };
+  
+    addEventListener(window, 'resize', debounce(onResize, 200), {
+      passive: true,
+    });
+  }
+
   componentDidMount() {
     // Sticky clue
     const $stickyClueWrapper = $(findDOMNode(this.stickyClueWrapper));
     const $game = $(findDOMNode(this.game));
 
     mediator.on(
-      'window:resize',
-      debounce(this.setGridHeight.bind(this), 200),
-    );
-    mediator.on(
-      'window:orientationchange',
+      'window:throttledResize',
       debounce(this.setGridHeight.bind(this), 200),
     );
     this.setGridHeight();
