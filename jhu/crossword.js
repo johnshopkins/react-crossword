@@ -13,6 +13,11 @@ const data = {
     rows: 21 
   },
   crosswordType: 'jhu',
+  eventHandler: {
+    push: function (event) {
+      console.log(event);
+    }
+  },
   hiddenWord: {
     cells: {
       1: [0],

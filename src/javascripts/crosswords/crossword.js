@@ -49,9 +49,11 @@ class Crossword extends Component {
     this.checked= [];
 
     this.hiddenWord = this.props.data.hiddenWord || null;
+    this.eventHandler = this.props.data.eventHandler || null;
 
     this.cluesInitialized = false;
     this.cluesAttempted = [];
+    this.cluesCorrect = [];
 
     this.state = {
       grid: buildGrid(
@@ -651,16 +653,31 @@ class Crossword extends Component {
   }
 
   cluesData() {
+
     let cluesAttempted = [];
+    let cluesCorrect = [];
 
     const clues = this.props.data.entries.map((entry) => {
       const hasAnswered = checkClueHasBeenAnswered(
         this.state.grid,
         entry,
       );
+
       if (hasAnswered) {
-        cluesAttempted.push(entry.number + ' ' + entry.direction);
+
+        const entryLabel = entry.number + ' ' + entry.direction;
+
+        if (this.cluesAttempted.indexOf(entryLabel) === -1) {
+          // new clue attempted
+          cluesAttempted.push(entryLabel);
+        }
+
+        if (this.cluesCorrect.indexOf(entryLabel) === -1 && entry.solution && this.findBadCells(entry).length === 0) {
+          // new clue answered correctly
+          cluesCorrect.push(entryLabel);
+        }
       }
+
       return {
         entry,
         hasAnswered,
@@ -668,19 +685,29 @@ class Crossword extends Component {
       };
     });
 
-    if (typeof dataLayer === 'object' && typeof dataLayer.push === 'function' && this.cluesInitialized === true) {
+    if (this.eventHandler && this.cluesInitialized === true) {
 
-      let difference = cluesAttempted.filter(x => this.cluesAttempted.indexOf(x) === -1);
+      let newAttempts = cluesAttempted.filter(x => this.cluesAttempted.indexOf(x) === -1);
+      if (newAttempts.length > 0) {
+        this.eventHandler.push({
+          'event': 'clueAttempted',
+          'label': newAttempts[0]
+        });
+      }
 
-      if (difference.length > 0) {
-        dataLayer.push({
-          'event': 'clueAnswered',
-          'label': difference[0]
+      let newCorrectAttempts = cluesCorrect.filter(x => this.cluesCorrect.indexOf(x) === -1);
+      if (newCorrectAttempts.length > 0) {
+        this.eventHandler.push({
+          'event': 'clueAnsweredCorrectly',
+          'label': newCorrectAttempts[0]
         });
       }
     }
 
-    this.cluesAttempted = cluesAttempted;
+    // add new ones
+    this.cluesAttempted = this.cluesAttempted.concat(cluesAttempted);
+    this.cluesCorrect = this.cluesCorrect.concat(cluesCorrect);
+
     this.cluesInitialized = true;
 
     return clues;
