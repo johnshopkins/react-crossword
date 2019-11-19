@@ -67,6 +67,10 @@
         }
     }
 
+    & .crossword__clues--wrapper {
+        position: relative;
+    }
+
     @include mq($from: tablet, $until: wide) {
         & .crossword__clues {
             position: relative;
