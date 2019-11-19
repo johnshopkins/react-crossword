@@ -709,21 +709,23 @@ class Crossword extends Component {
     }
   }
 
-  check(entry) {
+  findBadCells(entry) {
     const cells = cellsForEntry(entry);
+    return zip(cells, entry.solution.split(''))
+      .filter((cellAndSolution) => {
+        const coords = cellAndSolution[0];
+        const cell = this.state.grid[coords.x][coords.y];
+        const solution = cellAndSolution[1];
+        return (
+          /^.$/.test(cell.value) && cell.value !== solution
+        );
+      })
+      .map(cellAndSolution => cellAndSolution[0]);
+  }
 
+  check(entry) {
     if (entry.solution) {
-      const badCells = zip(cells, entry.solution.split(''))
-        .filter((cellAndSolution) => {
-          const coords = cellAndSolution[0];
-          const cell = this.state.grid[coords.x][coords.y];
-          const solution = cellAndSolution[1];
-          return (
-            /^.$/.test(cell.value) && cell.value !== solution
-          );
-        })
-        .map(cellAndSolution => cellAndSolution[0]);
-
+      const badCells = this.findBadCells(entry);
       this.setState({
         grid: mapGrid(this.state.grid, (cell, gridX, gridY) => {
           if (badCells.some(bad => bad.x === gridX && bad.y === gridY)) {
