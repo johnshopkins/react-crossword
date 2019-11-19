@@ -817,6 +817,14 @@ class Crossword extends Component {
     };
 
     return (
+      <div>
+        <HiddenWord
+          grid={this.state.grid}
+          hiddenWord={this.hiddenWord}
+          onChange={this.onHiddenWordBlockChange.bind(this)}
+          onFocus={this.onHiddenWordBlockFocus.bind(this)}
+          onSubmit={this.onHiddenWordBlockSubmit.bind(this)}
+        />
       <div
         className={`crossword__container crossword__container--${
           this.props.data.crosswordType
@@ -879,13 +887,6 @@ class Crossword extends Component {
           clueInFocus={focused}
           crossword={this}
         />
-        <HiddenWord
-          grid={this.state.grid}
-          hiddenWord={this.hiddenWord}
-          onChange={this.onHiddenWordBlockChange.bind(this)}
-          onFocus={this.onHiddenWordBlockFocus.bind(this)}
-          onSubmit={this.onHiddenWordBlockSubmit.bind(this)}
-        />
         <Clues
           clues={this.cluesData()}
           focussed={focused}
@@ -894,6 +895,7 @@ class Crossword extends Component {
           )}
           setReturnPosition={this.setReturnPosition.bind(this)}
         />
+      </div>
       </div>
     );
   }
