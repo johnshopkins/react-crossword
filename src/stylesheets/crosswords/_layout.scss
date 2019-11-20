@@ -70,6 +70,10 @@
     & .crossword__clues--wrapper {
         clear: both;
         position: relative;
+        
+        @include mq($from: tablet, $until: wide) {
+            clear: none;
+        }
     }
 
     @include mq($from: tablet, $until: wide) {
