@@ -5,6 +5,10 @@
   .button {
     @include fs-textSans(4);
     margin-bottom: $gs-baseline;
+    &:active,
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .button--primary {
