@@ -67,7 +67,8 @@ class Crossword extends Component {
         this.hiddenWord.cells
       ),
       cellInFocus: null,
-      directionOfEntry: null
+      directionOfEntry: null,
+      gridHeight: '',
     };
   }
 
@@ -297,18 +298,18 @@ class Crossword extends Component {
       this.$gridWrapper = $(findDOMNode(this.gridWrapper));
     }
 
-    if (
-      isBreakpoint({
-        max: 'tablet',
-      })
-    ) {
+    // set grid height to state for clues component
+    const gridHeight = this.$gridWrapper.offset().width;
+    this.setState({ gridHeight: gridHeight });
+
+    if (isBreakpoint({ max: 'tablet' })) {
       fastdom.read(() => {
         // Our grid is a square, set the height of the grid wrapper
         // to the width of the grid wrapper
         fastdom.write(() => {
           this.$gridWrapper.css(
             'height',
-            `${this.$gridWrapper.offset().width}px`,
+            `${gridHeight}px`,
           );
         });
         this.gridHeightIsSet = true;
@@ -902,6 +903,7 @@ class Crossword extends Component {
           focusFirstCellInClueById={this.focusFirstCellInClueById.bind(
             this,
           )}
+          height={this.state.gridHeight}
           setReturnPosition={this.setReturnPosition.bind(this)}
         />
       </div>

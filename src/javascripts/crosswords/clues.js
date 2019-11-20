@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import bean from 'bean';
 import fastdom from 'fastdom';
+import $ from 'lib/$';
+import mediator from 'lib/mediator';
+import debounce from 'lodash/debounce';
 import { classNames } from 'crosswords/classNames';
 import { isBreakpoint } from 'lib/detect';
 import { scrollTo } from 'lib/scroller';
@@ -51,10 +54,9 @@ class Clues extends Component {
 
   componentDidMount() {
     this.$cluesNode = findDOMNode(this.clues);
-
-    const height = this.$cluesNode.scrollHeight - this.$cluesNode.clientHeight;
-
+  
     bean.on(this.$cluesNode, 'scroll', (e) => {
+      const height = this.$cluesNode.scrollHeight - this.$cluesNode.clientHeight;
       const showGradient = height - e.currentTarget.scrollTop > 25;
 
       if (this.state.showGradient !== showGradient) {
@@ -69,6 +71,9 @@ class Clues extends Component {
      * Scroll clues into view when they're activated (i.e. clicked in the grid)
      */
   componentDidUpdate(prev) {
+
+    this.setCluesHeight();
+
     if (
       isBreakpoint({
         min: 'tablet',
@@ -81,6 +86,24 @@ class Clues extends Component {
         this.scrollIntoView(this.props.focussed);
       });
     }
+  }
+
+  setCluesHeight() {
+    if (!this.$cluesWrapper) {
+      this.$cluesWrapper = $(findDOMNode(this.cluesWrapper));
+    }
+    if (!this.$clues) {
+      this.$clues = $(findDOMNode(this.clues));
+    }
+    
+    const height = this.props.height ? `${this.props.height}px` : '';
+
+    fastdom.read(() => {
+      fastdom.write(() => {
+        this.$cluesWrapper.css('height', height);
+        this.$clues.css('height', height);
+      });
+    });
   }
 
   scrollIntoView(clue) {
@@ -126,6 +149,9 @@ class Clues extends Component {
         className={`crossword__clues--wrapper ${
           this.state.showGradient ? '' : 'hide-gradient'
         }`}
+        ref={(cluesWrapper) => {
+          this.cluesWrapper = cluesWrapper;
+        }}
       >
         <div
           className="crossword__clues"
