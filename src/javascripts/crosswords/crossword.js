@@ -73,7 +73,6 @@ class Crossword extends Component {
 
   addWindowResizeEvent() {
     const onResize = (evt) => {
-      console.log('resize');
       mediator.emitEvent('window:throttledResize', [evt]);
     };
   
