@@ -2,6 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Crossword from 'crosswords/crossword';
 
+require('./polyfills/array.find');
+require('./polyfills/array.findIndex');
+require('./polyfills/array.fill');
+require('./polyfills/array.from');
+require('./polyfills/array.includes');
+require('./polyfills/object.assign');
+
 const entries = require('./data/entries');
 const data = {
   id: 'jhu/prototype',
