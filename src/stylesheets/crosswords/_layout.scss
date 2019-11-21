@@ -68,12 +68,12 @@
         clear: both;
         position: relative;
         
-        @include mq($from: tablet, $until: wide) {
+        @include mq(tablet) {
             clear: none;
         }
     }
 
-    @include mq($from: tablet, $until: wide) {
+    @include mq(tablet) {
         & .crossword__clues {
             position: relative;
             overflow-y: scroll;
@@ -90,7 +90,7 @@
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #ffffff);
     display: none;
 
-    @include mq($from: tablet, $until: wide) {
+    @include mq(tablet) {
         display: block;
 
         .hide-gradient & {
