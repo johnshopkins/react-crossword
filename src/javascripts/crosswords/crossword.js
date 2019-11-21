@@ -232,6 +232,8 @@ class Crossword extends Component {
   }
 
   onClearAll() {
+    this.clearPreviousChecks();
+    
     this.setState({
       grid: mapGrid(this.state.grid, (cell, gridX, gridY) => {
         const previousValue = cell.value;
@@ -247,9 +249,13 @@ class Crossword extends Component {
   }
 
   onClearSingle() {
+
     const clueInFocus = this.clueInFocus();
 
     if (clueInFocus) {
+
+      this.clearPreviousChecks(clueInFocus);
+
       // Merge arrays of cells from all highlighted clues
       // const cellsInFocus = _.flatten(_.map(this.allHighlightedClues(), helpers.cellsForEntry, this));
       const cellsInFocus = getClearableCellsForClue(
@@ -562,24 +568,39 @@ class Crossword extends Component {
     }
   }
 
+  /**
+   * If only one clue should be cleared, pass it as the only argument
+   */
+  clearPreviousChecks(clue) {
+    if (this.checked.length === 0) {
+      return;
+    }
+
+    const stillChecked = [];
+
+    this.checked.forEach(entry => {
+      if (!clue || (clue && entry.id === clue.id)) {
+        const cells = cellsForEntry(entry);
+        cells.forEach(cell => this.state.grid[cell.x][cell.y].wrong = false);
+      } else {
+        stillChecked.push(entry);
+      }
+    });
+    
+    this.setState({
+      grid: this.state.grid
+    });
+
+    this.checked = stillChecked;
+  }
+
   // Focus corresponding clue for a given cell
   focusClue(x, y, direction) {
 
-    if (this.checked.length > 0) {
-      // clear previous check(s)
-      this.checked.forEach(entry => {
-        const cells = cellsForEntry(entry);
-        cells.forEach(cell => this.state.grid[cell.x][cell.y].wrong = false);
-      });
-      
-      this.setState({
-        grid: this.state.grid
-      });
-      this.checked = [];
-    }
-
     const clues = cluesFor(this.clueMap, x, y);
     const clue = clues[direction];
+
+    this.clearPreviousChecks(clue);
 
     if (clues && clue) {
       this.focusHiddenInput(x, y);
