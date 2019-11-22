@@ -6,7 +6,7 @@ class HiddenWord extends Component {
     super(props);
 
     // create flat list of cells in the hidden word
-    this.cells = [];
+    this.cells = [];  
     Object.keys(this.props.hiddenWord.cells).map((x) => this.props.hiddenWord.cells[x].map((y) => {
       let cell = this.props.grid[x][y];
       cell.x = parseInt(x);
@@ -16,7 +16,7 @@ class HiddenWord extends Component {
 
     this.inputRefs = Array(this.cells.length).fill(0).map(() => React.createRef());
     this.submitRef = React.createRef();
-
+        
   }
 
   handleChange(x, y, character, i) {
@@ -27,7 +27,7 @@ class HiddenWord extends Component {
       return;
     }
 
-    if (this.inputRefs[i+1]) {
+    if (this.inputRefs[i+1]) {      
       this.inputRefs[i+1].current.focus();
       this.inputRefs[i+1].current.select();
     } else {
@@ -36,7 +36,7 @@ class HiddenWord extends Component {
   }
 
   onKeyDown(i) {
-    if (i >= 1) {
+    if (i >= 1) {      
       this.inputRefs[i-1].current.focus();
       this.inputRefs[i-1].current.select();
     }
@@ -47,7 +47,7 @@ class HiddenWord extends Component {
       <form onSubmit={this.props.onSubmit} className="crossword__hidden-word">
         <fieldset>
           { this.props.hiddenWord.title && <legend>{this.props.hiddenWord.title}</legend> }
-          {this.cells.map((cell, i) => {
+          {this.cells.map((cell, i) => {    
           return <HiddenWordCharacter
             value={cell.value}
             x={cell.x}
@@ -61,7 +61,7 @@ class HiddenWord extends Component {
           />;
         })}
         </fieldset>
-        <input class="button small" type={'submit'} value={'Submit'} ref={this.submitRef} />
+        <input type={'submit'} value={'Submit'} ref={this.submitRef} />
       </form>
     );
   }
