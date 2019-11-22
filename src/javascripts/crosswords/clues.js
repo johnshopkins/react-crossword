@@ -3,8 +3,6 @@ import { findDOMNode } from 'react-dom';
 import bean from 'bean';
 import fastdom from 'fastdom';
 import $ from 'lib/$';
-import mediator from 'lib/mediator';
-import debounce from 'lodash/debounce';
 import { classNames } from 'crosswords/classNames';
 import { isBreakpoint } from 'lib/detect';
 import { scrollTo } from 'lib/scroller';
@@ -95,15 +93,20 @@ class Clues extends Component {
     if (!this.$clues) {
       this.$clues = $(findDOMNode(this.clues));
     }
-    
-    const height = this.props.height ? `${this.props.height}px` : '';
 
-    fastdom.read(() => {
-      fastdom.write(() => {
-        this.$cluesWrapper.css('height', height);
-        this.$clues.css('height', height);
+    if (isBreakpoint({ min: 'tablet' })) {
+      const height = `${this.props.height}px`;
+      fastdom.read(() => {
+        fastdom.write(() => {
+          this.$cluesWrapper.css('height', height);
+          this.$clues.css('height', height);
+        });
+        this.cluesHeightIsSet = true;
       });
-    });
+    } else if (this.cluesHeightIsSet) {
+      this.$cluesWrapper.attr('style', '');
+      this.$clues.attr('style', '');
+    }    
   }
 
   scrollIntoView(clue) {
