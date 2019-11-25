@@ -76,7 +76,7 @@ class Crossword extends Component {
     const onResize = (evt) => {
       mediator.emitEvent('window:throttledResize', [evt]);
     };
-  
+
     addEventListener(window, 'resize', debounce(onResize, 200), {
       passive: true,
     });
@@ -233,7 +233,7 @@ class Crossword extends Component {
 
   onClearAll() {
     this.clearPreviousChecks();
-    
+
     this.setState({
       grid: mapGrid(this.state.grid, (cell, gridX, gridY) => {
         const previousValue = cell.value;
@@ -387,7 +387,7 @@ class Crossword extends Component {
 
     if ((characterUppercase === '' || /[A-Za-zÀ-ÿ0-9]/.test(characterUppercase) && cell)) {
       this.setCellValue(x, y, characterUppercase);
-      this.saveGrid();      
+      this.saveGrid();
       return true;
     }
 
@@ -586,7 +586,7 @@ class Crossword extends Component {
         stillChecked.push(entry);
       }
     });
-    
+
     this.setState({
       grid: this.state.grid
     });
@@ -849,13 +849,6 @@ class Crossword extends Component {
 
     return (
       <div>
-        <HiddenWord
-          grid={this.state.grid}
-          hiddenWord={this.hiddenWord}
-          onChange={this.onHiddenWordBlockChange.bind(this)}
-          onFocus={this.onHiddenWordBlockFocus.bind(this)}
-          onSubmit={this.onHiddenWordBlockSubmit.bind(this)}
-        />
       <div
         className={`crossword__container crossword__container--${
           this.props.data.crosswordType
@@ -928,6 +921,13 @@ class Crossword extends Component {
           setReturnPosition={this.setReturnPosition.bind(this)}
         />
       </div>
+      <HiddenWord
+        grid={this.state.grid}
+        hiddenWord={this.hiddenWord}
+        onChange={this.onHiddenWordBlockChange.bind(this)}
+        onFocus={this.onHiddenWordBlockFocus.bind(this)}
+        onSubmit={this.onHiddenWordBlockSubmit.bind(this)}
+      />
       </div>
     );
   }
