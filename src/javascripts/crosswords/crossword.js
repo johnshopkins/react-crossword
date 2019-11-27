@@ -410,6 +410,23 @@ class Crossword extends Component {
       }
     }));
 
+    if (this.eventHandler) {
+      this.eventHandler.push({
+        'event': 'passwordSubmitted',
+        'label': success ? 'Correct' : 'Incorrect'
+      });
+      this.eventHandler.push({
+        'event': 'passwordSubmitted',
+        'label': 'Clues attempted',
+        'value': this.cluesAttempted.length
+      });
+      this.eventHandler.push({
+        'event': 'passwordSubmitted',
+        'label': 'Clues correct',
+        'value': this.cluesCorrect.length
+      });
+    }
+
     if (typeof this.hiddenWord.callback === 'function') {
       this.hiddenWord.callback(success);
     }
