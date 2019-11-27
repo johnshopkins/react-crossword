@@ -417,12 +417,12 @@ class Crossword extends Component {
         'value': success
       });
       this.eventHandler.push({
-        'event': 'passwordSubmitted',
+        'event': 'crosswordSubmitted',
         'label': 'Clues attempted',
         'value': this.cluesAttempted.length
       });
       this.eventHandler.push({
-        'event': 'passwordSubmitted',
+        'event': 'crosswordSubmitted',
         'label': 'Clues correct',
         'value': this.cluesCorrect.length
       });
