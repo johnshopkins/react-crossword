@@ -17,7 +17,6 @@ import { HiddenWord } from 'crosswords/hidden-word';
 import {
   buildClueMap,
   buildGrid,
-  findHiddenWordCells,
   otherDirection,
   entryHasCell,
   cluesFor,

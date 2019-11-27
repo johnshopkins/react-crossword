@@ -5,9 +5,17 @@ class HiddenWord extends Component {
   constructor(props) {
     super(props);
 
+    // flip array (instead of x:[y], y:[x]) so that the password
+    // reads from left to right
+    const flipped = {};
+    Object.keys(this.props.hiddenWord.cells).map((x) => this.props.hiddenWord.cells[x].map((y) => {
+      if (typeof flipped[y] === 'undefined') flipped[y] = [];
+      flipped[y].push(x);
+    }));
+
     // create flat list of cells in the hidden word
     this.cells = [];  
-    Object.keys(this.props.hiddenWord.cells).map((x) => this.props.hiddenWord.cells[x].map((y) => {
+    Object.keys(flipped).map((y) => flipped[y].map((x) => {
       let cell = this.props.grid[x][y];
       cell.x = parseInt(x);
       cell.y = parseInt(y);
