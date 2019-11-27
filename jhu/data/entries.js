@@ -1,951 +1,1492 @@
 const entries = [
-  {
-    number: 1,
-    clue: 'Fasteners ... or, if you change the fourth letter to an S, what the fasteners might be made of',
-    direction: 'across',
-    position: { x: 1, y: 0 },
-    solution: 'BRADS'
-  },
-  {
-    number: 6,
-    clue: 'It\'s lit eight nights in a row',
-    direction: 'across',
-    position: { x: 7, y: 0 },
-    solution: 'MENORAH'
-  },
-  {
-    number: 13,
-    clue: 'Figure that denotes acidity',
-    direction: 'across',
-    position: { x: 16, y: 0 },
-    solution: 'LOWPH'
-  },
-  {
-    number: 18,
-    humanNumber: 18,
-    clue: 'Less everyday',
-    direction: 'across',
-    position: { x: 1, y: 1 },
-    solution: 'RARER'
-  },
-  {
-    number: 19,
-    humanNumber: 19,
-    clue: 'Humble expression of capability',
-    direction: 'across',
-    position: { x: 7, y: 1 },
-    solution: 'IMANAGE'
-  },
-  {
-    number: 20,
-    clue: 'Number that might be kept secret',
-    direction: 'across',
-    position: { x: 15, y: 1 },
-    solution: 'SALARY'
-  },
-  {
-    number: 21,
-    clue: 'Professional whose favorite movie line might be "There\'s no place like home"',
-    direction: 'across',
-    position: { x: 0, y: 2 },
-    solution: 'SOFTBALLPLAYER'
-  },
-  {
-    number: 23,
-    clue: 'Muse of astronomy',
-    direction: 'across',
-    position: { x: 15, y: 2 },
-    solution: 'URANIA'
-  },
-  {
-    number: 24,
-    clue: 'Dis-qualified?',
-    direction: 'across',
-    position: { x: 0, y: 3 },
-    solution: 'UNFIT'
-  },
-  {
-    number: 25,
-    clue: 'Cyclops\'s "I"',
-    direction: 'across',
-    position: { x: 6, y: 3 },
-    solution: 'IOTA'
-  },
-  {
-    number: 26,
-    clue: '"Uh-oh!"',
-    direction: 'across',
-    position: { x: 13, y: 3 },
-    solution: 'OOPS'
-  },
-  {
-    number: 28,
-    clue: 'Maker of the Acadia S.U.V.',
-    direction: 'across',
-    position: { x: 18, y: 3 },
-    solution: 'GMC'
-  },
-  {
-    number: 29,
-    clue: 'Franchise with a series set in New Orleans',
-    direction: 'across',
-    position: { x: 0, y: 4 },
-    solution: 'NCIS'
-  },
-  {
-    number: 30,
-    clue: 'Singer ____ J. Blige',
-    direction: 'across',
-    position: { x: 5, y: 4 },
-    solution: 'MARY'
-  },
-  {
-    number: 31,
-    clue: 'Weasel relative',
-    direction: 'across',
-    position: { x: 10, y: 4 },
-    solution: 'ERMINE'
-  },
-  {
-    number: 34,
-    clue: 'South Asian garment',
-    direction: 'across',
-    position: { x: 17, y: 4 },
-    solution: 'SARI'
-  },
-  {
-    number: 35,
-    clue: '... "Here\'s looking at you, kid"',
-    direction: 'across',
-    position: { x: 0, y: 5 },
-    solution: 'GOATHERD'
-  },
-  {
-    number: 37,
-    clue: 'Not be attentive',
-    direction: 'across',
-    position: { x: 9, y: 5 },
-    solution: 'SNOOZE'
-  },
-  {
-    number: 38,
-    clue: 'President whose wife went on to become president',
-    direction: 'across',
-    position: { x: 16, y: 5 },
-    solution: 'PERON'
-  },
-  {
-    number: 39,
-    clue: 'Unconfident utterances',
-    direction: 'across',
-    position: { x: 4, y: 6 },
-    solution: 'UMS'
-  },
-  {
-    number: 40,
-    clue: '... "I wish I knew how to quit you"',
-    direction: 'across',
-    position: { x: 9, y: 6 },
-    solution: 'ITSPECIALIST'
-  },
-  {
-    number: 42,
-    clue: 'Not manually controlled',
-    direction: 'across',
-    position: { x: 0, y: 7 },
-    solution: 'ONAUTO'
-  },
-  {
-    number: 46,
-    clue: 'Foreign capital where W. E. B. Du Bois is buried',
-    direction: 'across',
-    position: { x: 7, y: 7 },
-    solution: 'ACCRA'
-  },
-  {
-    number: 48,
-    clue: 'Do a little tidying',
-    direction: 'across',
-    position: { x: 13, y: 7 },
-    solution: 'DUST'
-  },
-  {
-    number: 49,
-    clue: 'Lukewarm response',
-    direction: 'across',
-    position: { x: 18, y: 7 },
-    solution: 'MEH'
-  },
-  {
-    number: 50,
-    clue: 'Arthropod appendages',
-    direction: 'across',
-    position: { x: 0, y: 8 },
-    solution: 'PALPS'
-  },
-  {
-    number: 51,
-    clue: 'Emitters of cosmic rays',
-    direction: 'across',
-    position: { x: 6, y: 8 },
-    solution: 'PULSARS'
-  },
-  {
-    number: 53,
-    clue: 'Arctic coat',
-    direction: 'across',
-    position: { x: 14, y: 8 },
-    solution: 'PARKA'
-  },
-  {
-    number: 55,
-    clue: 'Typing sounds',
-    direction: 'across',
-    position: { x: 0, y: 9 },
-    solution: 'TAPS'
-  },
-  {
-    number: 56,
-    clue: '"Well, aren\'t I clever?!"',
-    direction: 'across',
-    position: { x: 5, y: 9 },
-    solution: 'TADA'
-  },
-  {
-    number: 57,
-    clue: 'Shaving mishap',
-    direction: 'across',
-    position: { x: 10, y: 9 },
-    solution: 'NICK'
-  },
-  {
-    number: 59,
-    clue: 'One honored on March 8 per a 1977 United Nations resolution',
-    direction: 'across',
-    position: { x: 15, y: 9 },
-    solution: 'WOMAN'
-  },
-  {
-    number: 61,
-    clue: '... "Go ahead, make my day"',
-    direction: 'across',
-    position: { x: 0, y: 10 },
-    solution: 'SCHEDULINGCOORDINATOR'
-  },
-  {
-    number: 66,
-    clue: 'Less bronzed',
-    direction: 'across',
-    position: { x: 1, y: 11 },
-    solution: 'PALER'
-  },
-  {
-    number: 67,
-    clue: 'Hated figure',
-    direction: 'across',
-    position: { x: 7, y: 11 },
-    solution: 'OGRE'
-  },
-  {
-    number: 68,
-    clue: 'Promote',
-    direction: 'across',
-    position: { x: 12, y: 11 },
-    solution: 'TOUT'
-  },
-  {
-    number: 69,
-    clue: 'Relative of the emu',
-    direction: 'across',
-    position: { x: 17, y: 11 },
-    solution: 'RHEA'
-  },
-  {
-    number: 70,
-    clue: 'Couleur in the middle of the French flag',
-    direction: 'across',
-    position: { x: 2, y: 12 },
-    solution: 'BLANC'
-  },
-  {
-    number: 72,
-    clue: 'Big maker of smartphones',
-    direction: 'across',
-    position: { x: 8, y: 12 },
-    solution: 'SAMSUNG'
-  },
-  {
-    number: 74,
-    clue: 'Word between "stink" and "stunk" in "You\re a Mean One, Mr. Grinch"',
-    direction: 'across',
-    position: { x: 16, y: 12 },
-    solution: 'STANK'
-  },
-  {
-    number: 75,
-    clue: 'Hurry, quaintly',
-    direction: 'across',
-    position: { x: 0, y: 13 },
-    solution: 'HIE'
-  },
-  {
-    number: 77,
-    clue: 'Place to get a knish',
-    direction: 'across',
-    position: { x: 4, y: 13 },
-    solution: 'DELI'
-  },
-  {
-    number: 79,
-    clue: 'Obstetrics worker',
-    direction: 'across',
-    position: { x: 9, y: 13 },
-    solution: 'NURSE'
-  },
-  {
-    number: 80,
-    clue: 'Dwell',
-    direction: 'across',
-    position: { x: 15, y: 13 },
-    solution: 'RESIDE'
-  },
-  {
-    number: 81,
-    clue: '... "Get to the chopper!"',
-    direction: 'across',
-    position: { x: 0, y: 14 },
-    solution: 'ORTHODONTIST'
-  },
-  {
-    number: 84,
-    clue: 'Recording device, for short',
-    direction: 'across',
-    position: { x: 14, y: 14 },
-    solution: 'CAM'
-  },
-  {
-    number: 85,
-    clue: '____ planning',
-    direction: 'across',
-    position: { x: 0, y: 15 },
-    solution: 'URBAN'
-  },
-  {
-    number: 86,
-    clue: 'Part of N.S., in Canadian mail',
-    direction: 'across',
-    position: { x: 0, y: 15 },
-    solution: 'URBAN'
-  },
-  {
-    number: 87,
-    clue: '... "Is this your king?!"',
-    direction: 'across',
-    position: { x: 13, y: 15 },
-    solution: 'MAGICIAN'
-  },
-  {
-    number: 92,
-    clue: 'Fine deposit',
-    direction: 'across',
-    position: { x: 0, y: 16 },
-    solution: 'SILT'
-  },
-  {
-    number: 93,
-    clue: 'Airport named for two Washington cities',
-    direction: 'across',
-    position: { x: 5, y: 16 },
-    solution: 'SEATAC'
-  },
-  {
-    number: 94,
-    clue: 'Hurry',
-    direction: 'across',
-    position: { x: 12, y: 16 },
-    solution: 'RACE'
-  },
-  {
-    number: 95,
-    clue: '"This one\'s ____"',
-    direction: 'across',
-    position: { x: 17, y: 16 },
-    solution: 'ONME'
-  },
-  {
-    number: 96,
-    clue: 'Caesar\'s "I"',
-    direction: 'across',
-    position: { x: 0, y: 17 },
-    solution: 'EGO'
-  },
-  {
-    number: 97,
-    clue: 'Reaction to scritches, maybe',
-    direction: 'across',
-    position: { x: 4, y: 17 },
-    solution: 'PURR'
-  },
-  {
-    number: 98,
-    clue: '"____ the Explorer"',
-    direction: 'across',
-    position: { x: 11, y: 17 },
-    solution: 'DORA'
-  },
-  {
-    number: 99,
-    clue: 'Things you might take a spin in',
-    direction: 'across',
-    position: { x: 16, y: 17 },
-    solution: 'TUTUS'
-  },
-  {
-    number: 100,
-    clue: 'Stored',
-    direction: 'across',
-    position: { x: 0, y: 18 },
-    solution: 'CACHED'
-  },
-  {
-    number: 102,
-    clue: '... "I\'ll have what she\'s having"',
-    direction: 'across',
-    position: { x: 7, y: 18 },
-    solution: 'EPIDEMIOLOGIST'
-  },
-  {
-    number: 107,
-    clue: 'Low-carb-diet creator',
-    direction: 'across',
-    position: { x: 0, y: 19 },
-    solution: 'ATKINS'
-  },
-  {
-    number: 108,
-    clue: 'Piece of furniture that\'s at least a couple of feet wide',
-    direction: 'across',
-    position: { x: 7, y: 19 },
-    solution: 'OTTOMAN'
-  },
-  {
-    number: 109,
-    clue: 'Best competitive performance, informally',
-    direction: 'across',
-    position: { x: 15, y: 18 },
-    solution: 'AGAME'
-  },
-  {
-    number: 110,
-    clue: 'Trials',
-    direction: 'across',
-    position: { x: 0, y: 20 },
-    solution: 'TESTS'
-  },
-  {
-    number: 111,
-    clue: 'Trick that\'s "pulled"',
-    direction: 'across',
-    position: { x: 7, y: 20 },
-    solution: 'FASTONE'
-  },
-  {
-    number: 112,
-    clue: 'Doodling, say',
-    direction: 'across',
-    position: { x: 15, y: 20 },
-    solution: 'BORED'
-  },
-  {
-    number: 1,
-    clue: 'Mile High City athlete',
-    direction: 'down',
-    position: { x: 1, y: 0 },
-    solution: 'BRONCO'
-  },
-  {
-    number: 2,
-    clue: 'Palm fiber',
-    direction: 'down',
-    position: { x: 2, y: 0 },
-    solution: 'RAFFIA'
-  },
-  {
-    number: 3,
-    clue: 'Drawer, say',
-    direction: 'down',
-    position: { x: 3, y: 0 },
-    solution: 'ARTIST'
-  },
-  {
-    number: 4,
-    clue: 'Restructuring target',
-    direction: 'down',
-    position: { x: 4, y: 0 },
-    solution: 'DEBT'
-  },
-  {
-    number: 5,
-    clue: 'Sp. title',
-    direction: 'down',
-    position: { x: 5, y: 0 },
-    solution: 'SRA'
-  },
-  {
-    number: 6,
-    clue: 'Term of address for a noble',
-    direction: 'down',
-    position: { x: 7, y: 0 },
-    solution: 'MILORD'
-  },
-  {
-    number: 7,
-    clue: 'Like some calories Beyoncé film role',
-    direction: 'down',
-    position: { x: 8, y: 0 },
-    solution: 'EMPTY'
-  },
-  {
-    number: 9,
-    clue: '"Snakes ____ Plane"',
-    direction: 'down',
-    position: { x: 10, y: 0 },
-    solution: 'ONA'
-  },
-  {
-    number: 10,
-    clue: 'Shaft of sunshine',
-    direction: 'down',
-    position: { x: 11, y: 0 },
-    solution: 'RAY'
-  },
-  {
-    number: 11,
-    clue: 'Estimation from dating',
-    direction: 'down',
-    position: { x: 12, y: 0 },
-    solution: 'AGE'
-  },
-  {
-    number: 12,
-    clue: 'Placed on a pedestal',
-    direction: 'down',
-    position: { x: 13, y: 0 },
-    solution: 'HEROIZED'
-  },
-  {
-    number: 13,
-    clue: 'Swedish name akin to Lawrence',
-    direction: 'down',
-    position: { x: 15, y: 1 },
-    solution: 'LARS'
-  },
-  {
-    number: 14,
-    clue: 'Commercial suffix with Motor',
-    direction: 'down',
-    position: { x: 17, y: 0 },
-    solution: 'OLA'
-  },
-  {
-    number: 15,
-    clue: '2004 Nobel Peace Prize winner who founded the Green Belt Movement',
-    direction: 'down',
-    position: { x: 18, y: 0 },
-    solution: 'WANGARIMAATHAI'
-  },
-  {
-    number: 16,
-    clue: 'Flower that\'s often yellow',
-    direction: 'down',
-    position: { x: 19, y: 0 },
-    solution: 'PRIMROSE'
-  },
-  {
-    number: 17,
-    clue: 'Flower that\'s often purple',
-    direction: 'down',
-    position: { x: 20, y: 0 },
-    solution: 'HYACINTH'
-  },
-  {
-    number: 20,
-    clue: 'School district higher-up, informally',
-    direction: 'down',
-    position: { x: 15, y: 1 },
-    solution: 'SUPE'
-  },
-  {
-    number: 21,
-    clue: 'Like praises and arias',
-    direction: 'down',
-    position: { x: 0, y: 2 },
-    solution: 'SUNG'
-  },
-  {
-    number: 22,
-    clue: 'Story tellers',
-    direction: 'down',
-    position: { x: 6, y: 2 },
-    solution: 'LIARS'
-  },
-  {
-    number: 27,
-    clue: 'Half a pint',
-    direction: 'down',
-    position: { x: 14, y: 3 },
-    solution: 'ONECUP'
-  },
-  {
-    number: 30,
-    clue: 'Firm-ly worded letter?',
-    direction: 'down',
-    position: { x: 5, y: 4 },
-    solution: 'MEMO'
-  },
-  {
-    number: 31,
-    clue: 'Bars that people walk into?',
-    direction: 'down',
-    position: { x: 10, y: 4 },
-    solution: 'ENTRANCEMUSIC'
-  },
-  {
-    number: 32,
-    clue: 'Actress Dawson',
-    direction: 'down',
-    position: { x: 11, y: 4 },
-    solution: 'ROSARIO'
-  },
-  {
-    number: 33,
-    clue: 'Clean (up)',
-    direction: 'down',
-    position: { x: 12, y: 4 },
-    solution: 'MOP'
-  },
-  {
-    number: 34,
-    clue: 'French for "salt"',
-    direction: 'down',
-    position: { x: 17, y: 4 },
-    solution: 'SEL'
-  },
-  {
-    number: 36,
-    clue: 'Humble homes',
-    direction: 'down',
-    position: { x: 4, y: 5 },
-    solution: 'HUTS'
-  },
-  {
-    number: 37,
-    clue: 'Incites to attack, with "on"',
-    direction: 'down',
-    position: { x: 9, y: 5 },
-    solution: 'SICS'
-  },
-  {
-    number: 38,
-    clue: '____ saint',
-    direction: 'down',
-    position: { x: 16, y: 5 },
-    solution: 'PATRON'
-  },
-  {
-    number: 41,
-    clue: 'Witness\'s attestation',
-    direction: 'down',
-    position: { x: 15, y: 6 },
-    solution: 'ISAWIT'
-  },
-  {
-    number: 42,
-    clue: 'Makes a choice',
-    direction: 'down',
-    position: { x: 0, y: 7 },
-    solution: 'OPTS'
-  },
-  {
-    number: 43,
-    clue: 'Image Award org.',
-    direction: 'down',
-    position: { x: 1, y: 7 },
-    solution: 'NAACP'
-  },
-  {
-    number: 44,
-    clue: 'Children\'s playthings that help with spelling',
-    direction: 'down',
-    position: { x: 2, y: 7 },
-    solution: 'ALPHABETBLOCKS'
-  },
-  {
-    number: 45,
-    clue: 'Encourage to buy add-ons 46 Sound bites and such',
-    direction: 'down',
-    position: { x: 3, y: 7 },
-    solution: 'UPSELL'
-  },
-  {
-    number: 47,
-    clue: 'Trolley sounds',
-    direction: 'down',
-    position: { x: 8, y: 7 },
-    solution: 'CLANGS'
-  },
-  {
-    number: 51,
-    clue: 'Buddy',
-    direction: 'down',
-    position: { x: 6, y: 8 },
-    solution: 'PAL'
-  },
-  {
-    number: 52,
-    clue: 'District 9, for short?',
-    direction: 'down',
-    position: { x: 12, y: 8 },
-    solution: 'SCOTUS'
-  },
-  {
-    number: 54,
-    clue: 'Alternatives to Targets',
-    direction: 'down',
-    position: { x: 17, y: 8 },
-    solution: 'KMARTS'
-  },
-  {
-    number: 56,
-    clue: 'Swayed to the dark side, say',
-    direction: 'down',
-    position: { x: 5, y: 9 },
-    solution: 'TURNED'
-  },
-  {
-    number: 58,
-    clue: 'Danish coin',
-    direction: 'down',
-    position: { x: 13, y: 9 },
-    solution: 'KRONE'
-  },
-  {
-    number: 60,
-    clue: 'Ceaselessly',
-    direction: 'down',
-    position: { x: 19, y: 9 },
-    solution: 'NOEND'
-  },
-  {
-    number: 62,
-    clue: 'Exactly right',
-    direction: 'down',
-    position: { x: 4, y: 10 },
-    solution: 'DEADON'
-  },
-  {
-    number: 63,
-    clue: 'Half-frozen Italian dessert',
-    direction: 'down',
-    position: { x: 9, y: 10 },
-    solution: 'GRANITA'
-  },
-  {
-    number: 64,
-    clue: 'Grooved on',
-    direction: 'down',
-    position: { x: 14, y: 10 },
-    solution: 'DUG'
-  },
-  {
-    number: 65,
-    clue: 'Leaf blower alternative',
-    direction: 'down',
-    position: { x: 20, y: 10 },
-    solution: 'RAKE'
-  },
-  {
-    number: 71,
-    clue: 'Effective salesperson',
-    direction: 'down',
-    position: { x: 6, y: 12 },
-    solution: 'CLOSER'
-  },
-  {
-    number: 73,
-    clue: 'Sp. title',
-    direction: 'down',
-    position: { x: 11, y: 12 },
-    solution: 'SRTA'
-  },
-  {
-    number: 74,
-    clue: 'Long truck',
-    direction: 'down',
-    position: { x: 16, y: 12 },
-    solution: 'SEMI'
-  },
-  {
-    number: 75,
-    clue: 'What goes in a box',
-    direction: 'down',
-    position: { x: 0, y: 13 },
-    solution: 'HOUSECAT'
-  },
-  {
-    number: 76,
-    clue: 'Water',
-    direction: 'down',
-    position: { x: 1, y: 13 },
-    solution: 'IRRIGATE'
-  },
-  {
-    number: 78,
-    clue: 'Overseen by',
-    direction: 'down',
-    position: { x: 7, y: 13 },
-    solution: 'INCAREOF'
-  },
-  {
-    number: 80,
-    clue: 'Anger',
-    direction: 'down',
-    position: { x: 15, y: 13 },
-    solution: 'RAGE'
-  },
-  {
-    number: 82,
-    clue: 'Receptacle for donations',
-    direction: 'down',
-    position: { x: 3, y: 14 },
-    solution: 'HAT'
-  },
-  {
-    number: 83,
-    clue: 'Little \'un',
-    direction: 'down',
-    position: { x: 8, y: 14 },
-    solution: 'TOT'
-  },
-  {
-    number: 84,
-    clue: 'Source of chocolate',
-    direction: 'down',
-    position: { x: 14, y: 14 },
-    solution: 'CACAO'
-  },
-  {
-    number: 87,
-    clue: 'One serving on a ship',
-    direction: 'down',
-    position: { x: 13, y: 15 },
-    solution: 'MARINE'
-  },
-  {
-    number: 88,
-    clue: 'Andean feline',
-    direction: 'down',
-    position: { x: 17, y: 15 },
-    solution: 'COUGAR'
-  },
-  {
-    number: 89,
-    clue: 'Eventually',
-    direction: 'down',
-    position: { x: 18, y: 15 },
-    solution: 'INTIME'
-  },
-  {
-    number: 90,
-    clue: 'Enjoying a comedy',
-    direction: 'down',
-    position: { x: 19, y: 15 },
-    solution: 'AMUSED'
-  },
-  {
-    number: 91,
-    clue: 'Stick-y pad?',
-    direction: 'down',
-    position: { x: 20, y: 15 },
-    solution: 'NEST'
-  },
-  {
-    number: 93,
-    clue: 'Brewski',
-    direction: 'down',
-    position: { x: 5, y: 16 },
-    solution: 'SUDS'
-  },
-  {
-    number: 94,
-    clue: 'Like DC and MI',
-    direction: 'down',
-    position: { x: 12, y: 16 },
-    solution: 'ROMAN'
-  },
-  {
-    number: 97,
-    clue: 'Calligraphers\' choices',
-    direction: 'down',
-    position: { x: 4, y: 17 },
-    solution: 'PENS'
-  },
-  {
-    number: 98,
-    clue: 'Twentysomethings, e.g.',
-    direction: 'down',
-    position: { x: 11, y: 17 },
-    solution: 'DEMO'
-  },
-  {
-    number: 99,
-    clue: 'Burkna Faso neighborhood',
-    direction: 'down',
-    position: { x: 16, y: 17 },
-    solution: 'TOGO'
-  },
-  {
-    number: 101,
-    clue: 'Word before "home" or "the road"',
-    direction: 'down',
-    position: { x: 3, y: 18 },
-    solution: 'HIT'
-  },
-  {
-    number: 103,
-    clue: 'School org.',
-    direction: 'down',
-    position: { x: 8, y: 18 },
-    solution: 'PTA'
-  },
-  {
-    number: 104,
-    clue: 'Part of fwiw',
-    direction: 'down',
-    position: { x: 9, y: 18 },
-    solution: 'ITS'
-  },
-  {
-    number: 105,
-    clue: 'Matrix character',
-    direction: 'down',
-    position: { x: 10, y: 18 },
-    solution: 'DOT'
-  },
-  {
-    number: 106,
-    clue: 'Place to wear smocks',
-    direction: 'down',
-    position: { x: 15, y: 18 },
-    solution: 'LAB'
-  }
-];
-
-module.exports = entries.map(item => {
-  item.id = item.number + '-' + item.direction;
-  item.humanNumber = item.number;
-  item.group = [item.id];
-  item.length = item.solution.length;
-  item.separatorLocations = {};
-  return item;
-});
+   {
+     number: 1,
+     clue: "When combined with 68-Across, a type of researcher",
+     direction: "across",
+     position: {
+       x: 0,
+       y: 0
+     },
+     solution: "POST"
+   },
+   {
+     number: 5,
+     clue: "Got 100% on",
+     direction: "across",
+     position: {
+       x: 5,
+       y: 0
+     },
+     solution: "ACED"
+   },
+   {
+     number: 9,
+     clue: "Degrees from Carey",
+     direction: "across",
+     position: {
+       x: 10,
+       y: 0
+     },
+     solution: "MBAS"
+   },
+   {
+     number: 13,
+     clue: "Big point in the career of a Peabody student",
+     direction: "across",
+     position: {
+       x: 16,
+       y: 0
+     },
+     solution: "DEBUT"
+   },
+   {
+     number: 18,
+     clue: "One calling tech support",
+     direction: "across",
+     position: {
+       x: 0,
+       y: 1
+     },
+     solution: "USER"
+   },
+   {
+     number: 19,
+     clue: "Architectural feature in the logo of the School of Medicine",
+     direction: "across",
+     position: {
+       x: 5,
+       y: 1
+     },
+     solution: "DOME"
+   },
+   {
+     number: 20,
+     clue: "____ the Red",
+     direction: "across",
+     position: {
+       x: 10,
+       y: 1
+     },
+     solution: "ERIK"
+   },
+   {
+     number: 21,
+     clue: "Tamber's and Papermoon, e.g.",
+     direction: "across",
+     position: {
+       x: 15,
+       y: 1
+     },
+     solution: "DINERS"
+   },
+   {
+     number: 22,
+     clue: "What a show starring Krieger alum John Astin is *not* named",
+     direction: "across",
+     position: {
+       x: 0,
+       y: 2
+     },
+     solution: "THEADDAMFAMILY"
+   },
+   {
+     number: 25,
+     clue: "Actress Bassett",
+     direction: "across",
+     position: {
+       x: 15,
+       y: 2
+     },
+     solution: "ANGELA"
+   },
+   {
+     number: 26,
+     clue: "___ International",
+     direction: "across",
+     position: {
+       x: 1,
+       y: 3
+     },
+     solution: "AMNESTY"
+   },
+   {
+     number: 27,
+     clue: "Grassy layer",
+     direction: "across",
+     position: {
+       x: 9,
+       y: 3
+     },
+     solution: "SOD"
+   },
+   {
+     number: 28,
+     clue: "6's and 7's",
+     direction: "across",
+     position: {
+       x: 14,
+       y: 3
+     },
+     solution: "DIGITS"
+   },
+   {
+     number: 29,
+     clue: "Prepare, as a table",
+     direction: "across",
+     position: {
+       x: 3,
+       y: 4
+     },
+     solution: "SET"
+   },
+   {
+     number: 30,
+     clue: "What a particle discovered by a team including JHU physicists is *not* named",
+     direction: "across",
+     position: {
+       x: 9,
+       y: 4
+     },
+     solution: "HIGGBOSON"
+   },
+   {
+     number: 33,
+     clue: "What a neighborhood near the East Baltimore campus is *not* named",
+     direction: "across",
+     position: {
+       x: 0,
+       y: 5
+     },
+     solution: "FELLPOINT"
+   },
+   {
+     number: 39,
+     clue: "Field of some not-so-secret agents",
+     direction: "across",
+     position: {
+       x: 10,
+       y: 5
+     },
+     solution: "REALTY"
+   },
+   {
+     number: 40,
+     clue: "Mountain in Sicily",
+     direction: "across",
+     position: {
+       x: 17,
+       y: 5
+     },
+     solution: "ETNA"
+   },
+   {
+     number: 44,
+     clue: "Geometry class computations",
+     direction: "across",
+     position: {
+       x: 0,
+       y: 6
+     },
+     solution: "AREAS"
+   },
+   {
+     number: 45,
+     clue: "Course ___",
+     direction: "across",
+     position: {
+       x: 6,
+       y: 6
+     },
+     solution: "LOAD"
+   },
+   {
+     number: 47,
+     clue: "The Homewood-Peabody-JHMI shuttle, for one",
+     direction: "across",
+     position: {
+       x: 12,
+       y: 6
+     },
+     solution: "BUS"
+   },
+   {
+     number: 48,
+     clue: "Went back on TV",
+     direction: "across",
+     position: {
+       x: 16,
+       y: 6
+     },
+     solution: "RERAN"
+   },
+   {
+     number: 49,
+     clue: "Dull finish",
+     direction: "across",
+     position: {
+       x: 0,
+       y: 7
+     },
+     solution: "MATTE"
+   },
+   {
+     number: 50,
+     clue: "Sport JHU excels in with a crossword term as its middle six letters",
+     direction: "across",
+     position: {
+       x: 6,
+       y: 7
+     },
+     solution: "LACROSSE"
+   },
+   {
+     number: 53,
+     clue: "Whiting alum Abel Wolman helped ensure this for public drinking water",
+     direction: "across",
+     position: {
+       x: 15,
+       y: 7
+     },
+     solution: "PURITY"
+   },
+   {
+     number: 54,
+     clue: "\"...or so ___ told\"",
+     direction: "across",
+     position: {
+       x: 3,
+       y: 8
+     },
+     solution: "IAM"
+   },
+   {
+     number: 56,
+     clue: "\"Thar ___ blows!\"",
+     direction: "across",
+     position: {
+       x: 9,
+       y: 8
+     },
+     solution: "SHE"
+   },
+   {
+     number: 57,
+     clue: "Martial arts instructor",
+     direction: "across",
+     position: {
+       x: 14,
+       y: 8
+     },
+     solution: "SENSEI"
+   },
+   {
+     number: 58,
+     clue: "Type of display at a tech conference",
+     direction: "across",
+     position: {
+       x: 0,
+       y: 9
+     },
+     solution: "DEMO"
+   },
+   {
+     number: 61,
+     clue: "Type of berry popular in health food",
+     direction: "across",
+     position: {
+       x: 5,
+       y: 9
+     },
+     solution: "ACAI"
+   },
+   {
+     number: 65,
+     clue: "Quidditch players who look for the Snitch",
+     direction: "across",
+     position: {
+       x: 10,
+       y: 9
+     },
+     solution: "SEEKERS"
+   },
+   {
+     number: 68,
+     clue: "See 1-Across",
+     direction: "across",
+     position: {
+       x: 18,
+       y: 9
+     },
+     solution: "DOC"
+   },
+   {
+     number: 70,
+     clue: "Go ____ smoke",
+     direction: "across",
+     position: {
+       x: 0,
+       y: 10
+     },
+     solution: "UPIN"
+   },
+   {
+     number: 71,
+     clue: "What America's first research university is *not* named",
+     direction: "across",
+     position: {
+       x: 5,
+       y: 10
+     },
+     solution: "JOHNHOPKINS"
+   },
+   {
+     number: 73,
+     clue: "Hue",
+     direction: "across",
+     position: {
+       x: 17,
+       y: 10
+     },
+     solution: "TINT"
+   },
+   {
+     number: 74,
+     clue: "Vinaigrette component",
+     direction: "across",
+     position: {
+       x: 0,
+       y: 11
+     },
+     solution: "OIL"
+   },
+   {
+     number: 75,
+     clue: "One conducting a provisional search?",
+     direction: "across",
+     position: {
+       x: 4,
+       y: 11
+     },
+     solution: "FORAGER"
+   },
+   {
+     number: 76,
+     clue: "Inside: Prefix",
+     direction: "across",
+     position: {
+       x: 12,
+       y: 11
+     },
+     solution: "ENDO"
+   },
+   {
+     number: 77,
+     clue: "Crafty website",
+     direction: "across",
+     position: {
+       x: 17,
+       y: 11
+     },
+     solution: "ETSY"
+   },
+   {
+     number: 78,
+     clue: "Actress Foy",
+     direction: "across",
+     position: {
+       x: 1,
+       y: 12
+     },
+     solution: "CLAIRE"
+   },
+   {
+     number: 80,
+     clue: "Robotic ___ (development at the Applied Physics Laboratory)",
+     direction: "across",
+     position: {
+       x: 9,
+       y: 12
+     },
+     solution: "ARM"
+   },
+   {
+     number: 82,
+     clue: "Prefix with fiction",
+     direction: "across",
+     position: {
+       x: 15,
+       y: 12
+     },
+     solution: "NON"
+   },
+   {
+     number: 84,
+     clue: "Certain types of fabric",
+     direction: "across",
+     position: {
+       x: 0,
+       y: 13
+     },
+     solution: "TWILLS"
+   },
+   {
+     number: 85,
+     clue: "U.S. state whose abbreviation is a degree awarded at the School of Medicine",
+     direction: "across",
+     position: {
+       x: 7,
+       y: 13
+     },
+     solution: "MARYLAND"
+   },
+   {
+     number: 90,
+     clue: "Channel for hoops fans",
+     direction: "across",
+     position: {
+       x: 16,
+       y: 13
+     },
+     solution: "NBATV"
+   },
+   {
+     number: 94,
+     clue: "Tundra or taiga",
+     direction: "across",
+     position: {
+       x: 0,
+       y: 14
+     },
+     solution: "BIOME"
+   },
+   {
+     number: 95,
+     clue: "End of some email addresses",
+     direction: "across",
+     position: {
+       x: 6,
+       y: 14
+     },
+     solution: "GOV"
+   },
+   {
+     number: 96,
+     clue: "Cap site",
+     direction: "across",
+     position: {
+       x: 11,
+       y: 14
+     },
+     solution: "KNEE"
+   },
+   {
+     number: 97,
+     clue: "Song line",
+     direction: "across",
+     position: {
+       x: 16,
+       y: 14
+     },
+     solution: "LYRIC"
+   },
+   {
+     number: 98,
+     clue: "Elsa's sister in \"Frozen\"",
+     direction: "across",
+     position: {
+       x: 0,
+       y: 15
+     },
+     solution: "ANNA"
+   },
+   {
+     number: 99,
+     clue: "JHU division that operates CharMar and The LaB",
+     direction: "across",
+     position: {
+       x: 5,
+       y: 15
+     },
+     solution: "DINING"
+   },
+   {
+     number: 102,
+     clue: "What the JHU student paper is *not* named",
+     direction: "across",
+     position: {
+       x: 12,
+       y: 15
+     },
+     solution: "NEWLETTER"
+   },
+   {
+     number: 104,
+     clue: "What the types of vehicles which a JHU team used to measure gravity are *not* named",
+     direction: "across",
+     position: {
+       x: 3,
+       y: 16
+     },
+     solution: "MARROVERS"
+   },
+   {
+     number: 107,
+     clue: "Sail off course",
+     direction: "across",
+     position: {
+       x: 15,
+       y: 16
+     },
+     solution: "YAW"
+   },
+   {
+     number: 108,
+     clue: "Calm",
+     direction: "across",
+     position: {
+       x: 1,
+       y: 17
+     },
+     solution: "PLACID"
+   },
+   {
+     number: 110,
+     clue: "Dove's sound",
+     direction: "across",
+     position: {
+       x: 9,
+       y: 17
+     },
+     solution: "COO"
+   },
+   {
+     number: 111,
+     clue: "Common break-in point in action movies",
+     direction: "across",
+     position: {
+       x: 13,
+       y: 17
+     },
+     solution: "AIRVENT"
+   },
+   {
+     number: 115,
+     clue: "Get into uniform",
+     direction: "across",
+     position: {
+       x: 0,
+       y: 18
+     },
+     solution: "SUITUP"
+   },
+   {
+     number: 116,
+     clue: "What Krieger is *not* the school of",
+     direction: "across",
+     position: {
+       x: 7,
+       y: 18
+     },
+     solution: "ARTANDSCIENCES"
+   },
+   {
+     number: 120,
+     clue: "Beginnings",
+     direction: "across",
+     position: {
+       x: 0,
+       y: 19
+     },
+     solution: "ONSETS"
+   },
+   {
+     number: 121,
+     clue: "Patricia M. Davidson (for the School of Nursing) or Ellen J. MacKenzie (for the School of Public Health), e.g.",
+     direction: "across",
+     position: {
+       x: 7,
+       y: 19
+     },
+     solution: "DEAN"
+   },
+   {
+     number: 122,
+     clue: "Competes",
+     direction: "across",
+     position: {
+       x: 12,
+       y: 19
+     },
+     solution: "VIES"
+   },
+   {
+     number: 123,
+     clue: "A lemon dessert, or a description of it",
+     direction: "across",
+     position: {
+       x: 17,
+       y: 19
+     },
+     solution: "TART"
+   },
+   {
+     number: 124,
+     clue: "____ into space",
+     direction: "across",
+     position: {
+       x: 0,
+       y: 20
+     },
+     solution: "STARE"
+   },
+   {
+     number: 125,
+     clue: "Titles for knights",
+     direction: "across",
+     position: {
+       x: 7,
+       y: 20
+     },
+     solution: "SIRS"
+   },
+   {
+     number: 126,
+     clue: "Applied Physics Lab project (whose name sounds like a projectile) studying how to deflect asteroids from hitting Earth",
+     direction: "across",
+     position: {
+       x: 12,
+       y: 20
+     },
+     solution: "DART"
+   },
+   {
+     number: 127,
+     clue: "Side dish at Thanksgiving",
+     direction: "across",
+     position: {
+       x: 17,
+       y: 20
+     },
+     solution: "YAMS"
+   },
+   {
+     number: 1,
+     clue: "Place",
+     direction: "down",
+     position: {
+       x: 0,
+       y: 0
+     },
+     solution: "PUT"
+   },
+   {
+     number: 2,
+     clue: "Workplace safety org.",
+     direction: "down",
+     position: {
+       x: 1,
+       y: 0
+     },
+     solution: "OSHA"
+   },
+   {
+     number: 3,
+     clue: "Appear",
+     direction: "down",
+     position: {
+       x: 2,
+       y: 0
+     },
+     solution: "SEEM"
+   },
+   {
+     number: 4,
+     clue: "\"Forever Watchful,\" for the School of Nursing's motto \"Vigilando,\" e.g.",
+     direction: "down",
+     position: {
+       x: 3,
+       y: 0
+     },
+     solution: "TRANSLATION"
+   },
+   {
+     number: 5,
+     clue: "Expands",
+     direction: "down",
+     position: {
+       x: 5,
+       y: 0
+     },
+     solution: "ADDSTO"
+   },
+   {
+     number: 6,
+     clue: "Cover",
+     direction: "down",
+     position: {
+       x: 6,
+       y: 0
+     },
+     solution: "COAT"
+   },
+   {
+     number: 7,
+     clue: "Award for JHU alum Tommy Newsom",
+     direction: "down",
+     position: {
+       x: 7,
+       y: 0
+     },
+     solution: "EMMY"
+   },
+   {
+     number: 8,
+     clue: "Dictionary entry: Abbr.",
+     direction: "down",
+     position: {
+       x: 8,
+       y: 0
+     },
+     solution: "DEF"
+   },
+   {
+     number: 9,
+     clue: "Story of one's life",
+     direction: "down",
+     position: {
+       x: 10,
+       y: 0
+     },
+     solution: "MEMOIR"
+   },
+   {
+     number: 10,
+     clue: "It might take a toll",
+     direction: "down",
+     position: {
+       x: 11,
+       y: 0
+     },
+     solution: "BRIDGE"
+   },
+   {
+     number: 11,
+     clue: "Be unwell",
+     direction: "down",
+     position: {
+       x: 12,
+       y: 0
+     },
+     solution: "AIL"
+   },
+   {
+     number: 12,
+     clue: "Plane place",
+     direction: "down",
+     position: {
+       x: 13,
+       y: 0
+     },
+     solution: "SKY"
+   },
+   {
+     number: 13,
+     clue: "Australian dog",
+     direction: "down",
+     position: {
+       x: 16,
+       y: 0
+     },
+     solution: "DINGO"
+   },
+   {
+     number: 14,
+     clue: "Many Whiting graduates",
+     direction: "down",
+     position: {
+       x: 17,
+       y: 0
+     },
+     solution: "ENGINEERS"
+   },
+   {
+     number: 15,
+     clue: "___ Week (annual Carey Business School event centered around a vegetable)",
+     direction: "down",
+     position: {
+       x: 18,
+       y: 0
+     },
+     solution: "BEET"
+   },
+   {
+     number: 16,
+     clue: "sais.jhu.edu and education.jhu.edu",
+     direction: "down",
+     position: {
+       x: 19,
+       y: 0
+     },
+     solution: "URLS"
+   },
+   {
+     number: 17,
+     clue: "Airport grp.",
+     direction: "down",
+     position: {
+       x: 20,
+       y: 0
+     },
+     solution: "TSA"
+   },
+   {
+     number: 21,
+     clue: "White and yellow flower",
+     direction: "down",
+     position: {
+       x: 15,
+       y: 1
+     },
+     solution: "DAISY"
+   },
+   {
+     number: 23,
+     clue: "Home for some extremophiles",
+     direction: "down",
+     position: {
+       x: 4,
+       y: 2
+     },
+     solution: "DEEPSEA"
+   },
+   {
+     number: 24,
+     clue: "Volcano output",
+     direction: "down",
+     position: {
+       x: 9,
+       y: 2
+     },
+     solution: "ASH"
+   },
+   {
+     number: 28,
+     clue: "This clue contains two of them",
+     direction: "down",
+     position: {
+       x: 14,
+       y: 3
+     },
+     solution: "DOTS"
+   },
+   {
+     number: 31,
+     clue: "Chatters",
+     direction: "down",
+     position: {
+       x: 12,
+       y: 4
+     },
+     solution: "GABS"
+   },
+   {
+     number: 32,
+     clue: "There are two distinct shades of it used in JHU branding",
+     direction: "down",
+     position: {
+       x: 13,
+       y: 4
+     },
+     solution: "BLUE"
+   },
+   {
+     number: 33,
+     clue: "One's relatives, familiarly",
+     direction: "down",
+     position: {
+       x: 0,
+       y: 5
+     },
+     solution: "FAM"
+   },
+   {
+     number: 34,
+     clue: "Historical period",
+     direction: "down",
+     position: {
+       x: 1,
+       y: 5
+     },
+     solution: "ERA"
+   },
+   {
+     number: 35,
+     clue: "Tennis call",
+     direction: "down",
+     position: {
+       x: 2,
+       y: 5
+     },
+     solution: "LET"
+   },
+   {
+     number: 36,
+     clue: "Under the weather",
+     direction: "down",
+     position: {
+       x: 6,
+       y: 5
+     },
+     solution: "ILL"
+   },
+   {
+     number: 37,
+     clue: "\"I've said ___ thousand times...\"",
+     direction: "down",
+     position: {
+       x: 7,
+       y: 5
+     },
+     solution: "NOA"
+   },
+   {
+     number: 38,
+     clue: "Tic-___-toe",
+     direction: "down",
+     position: {
+       x: 8,
+       y: 5
+     },
+     solution: "TAC"
+   },
+   {
+     number: 41,
+     clue: "\"Been there, done that\"",
+     direction: "down",
+     position: {
+       x: 18,
+       y: 5
+     },
+     solution: "TRIEDIT"
+   },
+   {
+     number: 42,
+     clue: "There are campuses of the School of Advanced International Studies in three of them",
+     direction: "down",
+     position: {
+       x: 19,
+       y: 5
+     },
+     solution: "NATIONS"
+   },
+   {
+     number: 43,
+     clue: "\"___ takers?\"",
+     direction: "down",
+     position: {
+       x: 20,
+       y: 5
+     },
+     solution: "ANY"
+   },
+   {
+     number: 46,
+     clue: "Many JHU graduates, for short",
+     direction: "down",
+     position: {
+       x: 9,
+       y: 6
+     },
+     solution: "DRS"
+   },
+   {
+     number: 48,
+     clue: "Frequent activities for JHU's national champion cross country athletes",
+     direction: "down",
+     position: {
+       x: 16,
+       y: 6
+     },
+     solution: "RUNS"
+   },
+   {
+     number: 51,
+     clue: "Comment after bumping into someone",
+     direction: "down",
+     position: {
+       x: 10,
+       y: 7
+     },
+     solution: "OHSORRY"
+   },
+   {
+     number: 52,
+     clue: "Ooze",
+     direction: "down",
+     position: {
+       x: 11,
+       y: 7
+     },
+     solution: "SEEP"
+   },
+   {
+     number: 53,
+     clue: "What Plato defined as \"a featherless biped\"",
+     direction: "down",
+     position: {
+       x: 15,
+       y: 7
+     },
+     solution: "PERSON"
+   },
+   {
+     number: 55,
+     clue: "Cognitive Science and Political Science are 2 of the 51 at JHU",
+     direction: "down",
+     position: {
+       x: 5,
+       y: 8
+     },
+     solution: "MAJORS"
+   },
+   {
+     number: 57,
+     clue: "Transmit",
+     direction: "down",
+     position: {
+       x: 14,
+       y: 8
+     },
+     solution: "SEND"
+   },
+   {
+     number: 58,
+     clue: "Pair",
+     direction: "down",
+     position: {
+       x: 0,
+       y: 9
+     },
+     solution: "DUO"
+   },
+   {
+     number: 59,
+     clue: "Huge victory, slangily",
+     direction: "down",
+     position: {
+       x: 1,
+       y: 9
+     },
+     solution: "EPICWIN"
+   },
+   {
+     number: 60,
+     clue: "3.2 _______ (number of books across JHU's libraries)",
+     direction: "down",
+     position: {
+       x: 2,
+       y: 9
+     },
+     solution: "MILLION"
+   },
+   {
+     number: 62,
+     clue: "____ values (e.g., innovation and evidence-based practice, for the School of Education)",
+     direction: "down",
+     position: {
+       x: 6,
+       y: 9
+     },
+     solution: "CORE"
+   },
+   {
+     number: 63,
+     clue: "\"Now I see!\"",
+     direction: "down",
+     position: {
+       x: 7,
+       y: 9
+     },
+     solution: "AHA"
+   },
+   {
+     number: 64,
+     clue: "Verbal suffix",
+     direction: "down",
+     position: {
+       x: 8,
+       y: 9
+     },
+     solution: "ING"
+   },
+   {
+     number: 66,
+     clue: "___ out",
+     direction: "down",
+     position: {
+       x: 12,
+       y: 9
+     },
+     solution: "EKE"
+   },
+   {
+     number: 67,
+     clue: "Relations",
+     direction: "down",
+     position: {
+       x: 13,
+       y: 9
+     },
+     solution: "KIN"
+   },
+   {
+     number: 69,
+     clue: "JHU-run camp that sounds like a body of water plus a beverage plus a question",
+     direction: "down",
+     position: {
+       x: 20,
+       y: 9
+     },
+     solution: "CTY"
+   },
+   {
+     number: 72,
+     clue: "Try, as a case",
+     direction: "down",
+     position: {
+       x: 9,
+       y: 10
+     },
+     solution: "HEAR"
+   },
+   {
+     number: 73,
+     clue: "President Daniels's goals for the end of the decade...or a description of a crossword about half the size of this one?",
+     direction: "down",
+     position: {
+       x: 17,
+       y: 10
+     },
+     solution: "TENBYTWENTY"
+   },
+   {
+     number: 75,
+     clue: "Item in JHBox",
+     direction: "down",
+     position: {
+       x: 4,
+       y: 11
+     },
+     solution: "FILE"
+   },
+   {
+     number: 79,
+     clue: "What the School of Public Health is for Virginia Apgar, the creator of the Apgar Test",
+     direction: "down",
+     position: {
+       x: 3,
+       y: 12
+     },
+     solution: "ALMAMATER"
+   },
+   {
+     number: 81,
+     clue: "Namesake of an annual community service award at JHU",
+     direction: "down",
+     position: {
+       x: 11,
+       y: 12
+     },
+     solution: "MLK"
+   },
+   {
+     number: 83,
+     clue: "Like professors, at times",
+     direction: "down",
+     position: {
+       x: 16,
+       y: 12
+     },
+     solution: "ONLEAVE"
+   },
+   {
+     number: 84,
+     clue: "Not yet made public: Abbr.",
+     direction: "down",
+     position: {
+       x: 0,
+       y: 13
+     },
+     solution: "TBA"
+   },
+   {
+     number: 85,
+     clue: "Prefix meaning \"one\"",
+     direction: "down",
+     position: {
+       x: 7,
+       y: 13
+     },
+     solution: "MONO"
+   },
+   {
+     number: 86,
+     clue: "Tel ____",
+     direction: "down",
+     position: {
+       x: 8,
+       y: 13
+     },
+     solution: "AVIV"
+   },
+   {
+     number: 87,
+     clue: "___ Arbor",
+     direction: "down",
+     position: {
+       x: 12,
+       y: 13
+     },
+     solution: "ANN"
+   },
+   {
+     number: 88,
+     clue: "Word before a maiden name",
+     direction: "down",
+     position: {
+       x: 13,
+       y: 13
+     },
+     solution: "NEE"
+   },
+   {
+     number: 89,
+     clue: "___ Drop Inn (punny hotel name)",
+     direction: "down",
+     position: {
+       x: 14,
+       y: 13
+     },
+     solution: "DEW"
+   },
+   {
+     number: 91,
+     clue: "Baltimore Museum of ___ (JHU neighbor)",
+     direction: "down",
+     position: {
+       x: 18,
+       y: 13
+     },
+     solution: "ART"
+   },
+   {
+     number: 92,
+     clue: "Indecisive outcome",
+     direction: "down",
+     position: {
+       x: 19,
+       y: 13
+     },
+     solution: "TIE"
+   },
+   {
+     number: 93,
+     clue: "Outmoded TV attachment",
+     direction: "down",
+     position: {
+       x: 20,
+       y: 13
+     },
+     solution: "VCR"
+   },
+   {
+     number: 95,
+     clue: "Surround",
+     direction: "down",
+     position: {
+       x: 6,
+       y: 14
+     },
+     solution: "GIRD"
+   },
+   {
+     number: 99,
+     clue: "Faucet annoyances",
+     direction: "down",
+     position: {
+       x: 5,
+       y: 15
+     },
+     solution: "DRIPS"
+   },
+   {
+     number: 100,
+     clue: "Bees' goal",
+     direction: "down",
+     position: {
+       x: 9,
+       y: 15
+     },
+     solution: "NECTAR"
+   },
+   {
+     number: 101,
+     clue: "Reacts to a dad joke, say",
+     direction: "down",
+     position: {
+       x: 10,
+       y: 15
+     },
+     solution: "GROANS"
+   },
+   {
+     number: 103,
+     clue: "Player of a certain string instrument",
+     direction: "down",
+     position: {
+       x: 15,
+       y: 15
+     },
+     solution: "LYRIST"
+   },
+   {
+     number: 105,
+     clue: "Like two angles in the triangle above Shriver Hall",
+     direction: "down",
+     position: {
+       x: 4,
+       y: 16
+     },
+     solution: "ACUTE"
+   },
+   {
+     number: 106,
+     clue: "Apollo, to Zeus",
+     direction: "down",
+     position: {
+       x: 11,
+       y: 16
+     },
+     solution: "SON"
+   },
+   {
+     number: 108,
+     clue: "One of the few types of foot-ball contact in football",
+     direction: "down",
+     position: {
+       x: 1,
+       y: 17
+     },
+     solution: "PUNT"
+   },
+   {
+     number: 109,
+     clue: "Singer Loeb",
+     direction: "down",
+     position: {
+       x: 2,
+       y: 17
+     },
+     solution: "LISA"
+   },
+   {
+     number: 111,
+     clue: "Turkey's location, largely",
+     direction: "down",
+     position: {
+       x: 13,
+       y: 17
+     },
+     solution: "ASIA"
+   },
+   {
+     number: 112,
+     clue: "One preparing a cake, perhaps",
+     direction: "down",
+     position: {
+       x: 14,
+       y: 17
+     },
+     solution: "ICER"
+   },
+   {
+     number: 113,
+     clue: "Body that governs JHU's 24 varsity teams",
+     direction: "down",
+     position: {
+       x: 18,
+       y: 17
+     },
+     solution: "NCAA"
+   },
+   {
+     number: 114,
+     clue: "It starts in August or January",
+     direction: "down",
+     position: {
+       x: 19,
+       y: 17
+     },
+     solution: "TERM"
+   },
+   {
+     number: 115,
+     clue: "Message of distress",
+     direction: "down",
+     position: {
+       x: 0,
+       y: 18
+     },
+     solution: "SOS"
+   },
+   {
+     number: 116,
+     clue: "Spots on TV?",
+     direction: "down",
+     position: {
+       x: 7,
+       y: 18
+     },
+     solution: "ADS"
+   },
+   {
+     number: 117,
+     clue: "Store selling outdoor gear",
+     direction: "down",
+     position: {
+       x: 8,
+       y: 18
+     },
+     solution: "REI"
+   },
+   {
+     number: 118,
+     clue: "___ drive (amenity no longer present in most laptops)",
+     direction: "down",
+     position: {
+       x: 12,
+       y: 18
+     },
+     solution: "DVD"
+   },
+   {
+     number: 119,
+     clue: "Wolfe, Charles, and St. Paul, e.g.",
+     direction: "down",
+     position: {
+       x: 20,
+       y: 18
+     },
+     solution: "STS"
+   }
+ ];
+ 
+ module.exports = entries.map(item => {
+   item.id = item.number + '-' + item.direction;
+   item.humanNumber = item.number;
+   item.group = [item.id];
+   item.length = item.solution.length;
+   item.separatorLocations = {};
+   return item;
+ });
+ 
