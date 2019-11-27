@@ -413,7 +413,8 @@ class Crossword extends Component {
     if (this.eventHandler) {
       this.eventHandler.push({
         'event': 'passwordSubmitted',
-        'label': success ? 'Correct' : 'Incorrect'
+        'label': 'Correct',
+        'value': success
       });
       this.eventHandler.push({
         'event': 'passwordSubmitted',
