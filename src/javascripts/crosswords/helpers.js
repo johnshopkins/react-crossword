@@ -133,21 +133,22 @@ const clueMapKey = (x, y) => `${x}_${y}`;
 const cluesFor = (clueMap, x, y) => clueMap[clueMapKey(x, y)];
 
 const getClearableCellsForEntry = (grid, clueMap, entries, entry) => {
-  const direction = otherDirection(entry.direction);
+  return cellsForEntry(entry);
+  // const direction = otherDirection(entry.direction);
 
-  return cellsForEntry(entry).filter((cell) => {
-    const clues = cluesFor(clueMap, cell.x, cell.y);
-    const otherClue = clues[direction];
+  // return cellsForEntry(entry).filter((cell) => {
+  //   const clues = cluesFor(clueMap, cell.x, cell.y);
+  //   const otherClue = clues[direction];
 
-    if (otherClue) {
-      return (
-        cluesAreInGroup(entry, otherClue)
-                || !checkClueHasBeenAnswered(grid, otherClue)
-      );
-    }
+  //   if (otherClue) {
+  //     return (
+  //       cluesAreInGroup(entry, otherClue)
+  //               || !checkClueHasBeenAnswered(grid, otherClue)
+  //     );
+  //   }
 
-    return true;
-  });
+  //   return true;
+  // });
 };
 
 const getClearableCellsForClue = (grid, clueMap, entries, clue) => {
