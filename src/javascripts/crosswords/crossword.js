@@ -901,7 +901,10 @@ class Crossword extends Component {
                     </span>
                   </strong>
                   {' '}
-                  {focused.clue}
+                  <span
+                    className="crossword__sticky-clue__text"
+                    dangerouslySetInnerHTML={{ __html: focused.clue }}
+                  />
                 </div>
               </div>
               )}

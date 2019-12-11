@@ -61,7 +61,7 @@ const entries = [
    },
    {
      number: 20,
-     clue: "____ the Red",
+     clue: "<span>____</span> the Red",
      direction: "across",
      position: {
        x: 10,
