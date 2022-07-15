@@ -63,7 +63,7 @@ class Controls extends Component {
           key="clear-single"
           data-link-name="Clear this"
         >
-                    Clear this
+          Clear this
         </button>,
       );
 
@@ -77,7 +77,7 @@ class Controls extends Component {
             key="cheat"
             data-link-name="Reveal this"
           >
-                        Reveal this
+            Reveal this
           </button>,
         );
         controls.clue.unshift(
@@ -89,7 +89,7 @@ class Controls extends Component {
             key="check"
             data-link-name="Check this"
           >
-                        Check this
+            Check this
           </button>,
         );
       }
