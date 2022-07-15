@@ -18,8 +18,8 @@
 }
 
 @mixin content-gutter {
-  padding-left: $gs-gutter/2;
-  padding-right: $gs-gutter/2;
+  padding-left: calc($gs-gutter/2);
+  padding-right: calc($gs-gutter/2);
 
   @include mq(mobileLandscape) {
     padding-left: $gs-gutter;
